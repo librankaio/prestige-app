@@ -4,6 +4,7 @@ use App\Http\Controllers\ControllerHome;
 use App\Http\Controllers\ControllerLogin;
 use App\Http\Controllers\ControllerMasterConsignee;
 use App\Http\Controllers\ControllerMasterCustomer;
+use App\Http\Controllers\ControllerMasterDataItem;
 use App\Http\Controllers\ControllerMasterJenisBarang;
 use App\Http\Controllers\ControllerMasterMerk;
 use App\Http\Controllers\ControllerMasterSales;
@@ -30,6 +31,7 @@ Route::get('mconsign', [ControllerMasterConsignee::class, 'index'])->name('mcons
 Route::get('mmerk', [ControllerMasterMerk::class, 'index'])->name('mmerk');
 Route::get('msatuan', [ControllerMasterSatuan::class, 'index'])->name('msatuan');
 Route::get('mjenisbrg', [ControllerMasterJenisBarang::class, 'index'])->name('mjenisbrg');
+Route::get('mitem', [ControllerMasterDataItem::class, 'index'])->name('mitem');
 
 // Route::get('/', function () {
 //     return view('welcome');
