@@ -20,7 +20,8 @@
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-exchange-alt"></i>
             <span>Transaction</span></a>
         <ul class="dropdown-menu">
-            <li><a class="nav-link" href="#">Pembelian Barang</a></li>
+            <li><a class="nav-link" href="{{ route('tinvoice') }}">Transaksi Invoice</a></li>
+            <li><a class="nav-link" href="{{ route('tretur') }}">Transaksi Retur</a></li>
         </ul>
     </li>
     <li class="menu-header">Reports</li>

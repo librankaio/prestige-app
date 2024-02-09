@@ -2,10 +2,10 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h1>Master Data Item</h1>
+        <h1>Retur</h1>
         <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="#">Master Data</a></div>
-            <div class="breadcrumb-item"><a class="text-muted">Master Data Item</a></div>
+            <div class="breadcrumb-item active"><a href="#">Transaction</a></div>
+            <div class="breadcrumb-item"><a class="text-muted">Retur</a></div>
         </div>
     </div>
     @php
@@ -29,117 +29,152 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>No Consign</label>
-                                    <select class="form-control select2" name="no_consign" id="no_consign">
-                                        <option disabled selected>--Select No Consign--</option>
-                                    </select>
+                                    <label>Retur No</label>
+                                    <input type="text" class="form-control" name="no" id="no" value="" readonly>
                                 </div>       
                                 <div class="form-group">
-                                    <label>Code Tag</label>
-                                    <input type="text" class="form-control" name="tag" value="">
-                                </div>    
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" class="form-control" name="name" value="">
-                                </div>    
-                                <div class="form-group">
-                                    <label>Consignee / Owner</label>
-                                    <select class="form-control select2" name="consignee" id="consignee">
-                                        <option disabled selected>--Select Consignee--</option>
+                                    <label>Jenis Retur</label>
+                                    <select class="form-control select2" name="jenis_trans" id="jenis_trans">
+                                        <option disabled selected>--Select Jenis Retur--</option>
+                                        {{-- @foreach($counters as $counter)
+                                        <option>{{ $counter->name}}</option>
+                                        @endforeach --}}
                                     </select>
-                                </div>         
-                                <div class="form-group">
-                                    <label>Hp</label>
-                                    <input type="text" class="form-control" name="phone" value="">
-                                </div>            
-                                <div class="form-group">
-                                    <label>Tanggal Consigne</label>
-                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
-                                </div>                               
+                                </div>                                  
+                                {{-- <div class="form-group">
+                                    <label>Catatan</label>
+                                    <textarea class="form-control" style="height:100px" name="note"></textarea>
+                                </div>                                 --}}
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Type</label>
-                                    <select class="form-control select2" name="type" id="type">
-                                        <option disabled selected>--Select Type--</option>
-                                        <option>Bags</option>
-                                    </select>
-                                </div>  
-                                <div class="form-group">
-                                    <label>Quantity</label>
-                                    <input type="text" class="form-control" name="quantity" value="">
-                                </div> 
-                                <div class="form-group">
-                                    <label>Sat</label>
-                                    <select class="form-control select2" name="satuan" id="satuan">
-                                        <option disabled selected>--Select Sat--</option>
-                                        <option>PCS</option>
-                                    </select>
-                                </div>  
-                                <div class="form-group">
-                                    <label>Brand</label>
-                                    <select class="form-control select2" name="brand" id="brand">
-                                        <option disabled selected>--Select Brand--</option>
-                                        <option>Bags</option>
-                                    </select>
-                                </div>  
-                                <div class="form-group">
-                                    <label>Warna</label>
-                                    <input type="text" class="form-control" name="warna" value="">
+                                    <label>Tanggal Retur</label>
+                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Size</label>
-                                    <input type="text" class="form-control" name="size" value="">
-                                </div>  
-                            </div>
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Harga Modal Satuan</label>
-                                            <select class="form-control select2" name="curr_type1" id="curr_type1">
-                                                <option selected>Rupiah</option>
-                                                <option>USD</option>
-                                            </select>
-                                        </div>  
-                                        <div class="form-group">
-                                            <label>Harga Jual Satuan</label>
-                                            <select class="form-control select2" name="curr_type2" id="curr_type2">
-                                                <option selected>Rupiah</option>
-                                                <option>USD</option>
-                                            </select>
-                                        </div>  
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Nominal Modal</label>
-                                            <input type="text" class="form-control" name="hrgmodal" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nominal Jual</label>
-                                            <input type="text" class="form-control" name="hrgjual" value="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Spesifikasi</label>
-                                    <textarea class="form-control" style="height:100px" name="spesifikasi"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>Lokasi</label>
-                                    <select class="form-control select2" name="lokasi" id="lokasi">
-                                        <option disabled selected>--Select Lokasi--</option>
-                                        <option>JKT</option>
-                                        <option>HKT</option>
-                                        <option>AKB</option>
-                                    </select>
-                                </div> 
+                                    <label>Sales</label>
+                                    <input type="text" class="form-control" name="admin" id="admin" value="" readonly>
+                                </div>       
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Header Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>No Invoice</label>
+                                    <select class="form-control select2" name="notag" id="notag">
+                                        <option disabled selected>--Select No Invoice--</option>
+                                    </select>
+                                </div>                                            
+                                <div class="form-group">
+                                    <label>Tgl Retur</label>
+                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
+                                </div>  
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Jenis Barang</label>
+                                    <select class="form-control select2" name="jenis_brg" id="jenis_brg">
+                                        <option disabled selected>--Select Jenis Barang--</option>
+                                    </select>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Jenis Barang</label>
+                                    <select class="form-control select2" name="jenis_brg" id="jenis_brg">
+                                        <option disabled selected>--Select Jenis Barang--</option>
+                                    </select>
+                                </div> 
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Nama Barang</label>
+                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" value="" readonly>
+                                </div>  
+                                <div class="form-group">
+                                    <label>Deskripsi Barang</label>
+                                    <textarea class="form-control" style="height:100px" name="desc_barang"></textarea>
+                                </div>  
+                            </div>                  
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Quantity</label>
+                                    <input type="text" class="form-control" name="quantity" id="quantity" value="" readonly>
+                                </div>  
+                                <div class="form-group">
+                                    <label>Merk Barang</label>
+                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                </div>  
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Kurs Beli Satuan</label>
+                                        <select class="form-control select2" name="kurs1" id="kurs1">
+                                            <option disabled selected>--Select No Tag--</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nominal Beli Satuan</label>
+                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Kurs Beli Satuan</label>
+                                        <select class="form-control select2" name="kurs1" id="kurs1">
+                                            <option disabled selected>--Select No Tag--</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nominal Beli Satuan</label>
+                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Satuan</label>
+                                    <select class="form-control select2" name="satuan" id="satuan">
+                                        <option disabled selected>--Select Satuan--</option>
+                                    </select>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Warna</label>
+                                    <input type="text" class="form-control" name="warna" id="warna" value="" readonly>
+                                </div>  
+                                <div class="form-group">
+                                    <label>Size</label>
+                                    <input type="text" class="form-control" name="size" id="size" value="" readonly>
+                                </div>  
+                                <div class="form-group">
+                                    <label>Material</label>
+                                    <input type="text" class="form-control" name="material" id="material" value="" readonly>
+                                </div>  
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Total</label>
+                                    <input type="text" class="form-control" name="total" id="total" value="0" readonly>
+                                </div>  
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Profit</label>
+                                    <input type="text" class="form-control" name="profit" id="profit" value="0" readonly>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
                 <div class="card" style="border: 1px solid lightblue">
                     <div class="card-header">
                         <h4>Gambar</h4>
@@ -171,50 +206,42 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-12 col-lg-12">
+            <div class="col-12 col-md-6 col-lg-6">
                 <div class="card">
+                    <div class="card-header">
+                        <h4>Info Retur</h4>
+                    </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="datatable">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="border border-5">No</th>
-                                        <th scope="col" class="border border-5">Kode</th>
-                                        <th scope="col" class="border border-5">Nama Item</th>
-                                        <th scope="col" class="border border-5">Warna</th>
-                                        <th scope="col" class="border border-5">Quantity</th>
-                                        <th scope="col" class="border border-5">Satuan</th>
-                                        <th scope="col" class="border border-5">Harga Jual</th>
-                                        <th scope="col" class="border border-5">Subtotal</th>
-                                        <th scope="col" class="border border-5">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>                            
-                            </table>
-                        </div>                                              
-                    </div>      
-                    <div class="col-12 col-md-6 col-lg-6 align-self-end">
                         <div class="row">
-                            <div class="col-md-8">  
-                            </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Total</label>
-                                    <input type="text" class="form-control" name="price_total" form="thisform" id="price_total" readonly>
-                                </div>
+                                    <label>Alasan Retur</label>
+                                    <select class="form-control select2" name="notag" id="notag">
+                                        <option disabled selected>--Select Alasan Retur--</option>
+                                    </select>
+                                </div>                                            
+                                <div class="form-group">
+                                    <label>Catatan Retur</label>
+                                    <textarea class="form-control" style="height:100px" name="desc_barang"></textarea>
+                                </div>  
+                            </div>                 
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Jenis Pembayaran</label>
+                                    <select class="form-control select2" name="notag" id="notag">
+                                        <option disabled selected>--Select Jenis Pembayaran--</option>
+                                    </select>
+                                </div>  
+                                <div class="form-group">
+                                    <label>Info Rekening</label>
+                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                </div>  
+                                <div class="form-group">
+                                    <label>Tgl Bayar</label>
+                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
+                                </div>  
                             </div>
                         </div>
-                    </div>              
-                    <div class="card-footer text-right">
-                        <a class="btn btn-warning mr-1" href="/tsoblist">List</a>
-                        <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="#">Save</button>
-                        {{-- @if($tpos_save == 'Y')
-                            <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('transpospost') }}">Submit</button>
-                        @elseif($tpos_save == 'N' || $tpos_save == null)
-                            <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('transpospost') }}" disabled>Submit</button>
-                        @endif --}}
-                        {{-- <button class="btn btn-secondary" type="reset">Reset</button> --}}
                     </div>
                 </div>
             </div>
@@ -225,8 +252,7 @@
 @stop
 @section('botscripts')
 <script type="text/javascript">
-
-    /*  ==========================================
+/*  ==========================================
         SHOW UPLOADED IMAGE 
     * ========================================== */
     function readURL0(input0) {
@@ -260,7 +286,7 @@
         infoArea0.textContent = 'File name: ' + fileName0;
 
     }
-
+    
     $(document).ready(function() {
         rowCount = 0;
         //CSRF TOKEN
@@ -268,7 +294,6 @@
         $(document).ready(function() {
             // $('.select2').select2({
             // });
-
 
             var counter = 1;
             $(document).on("click", "#addItem", function(e) {

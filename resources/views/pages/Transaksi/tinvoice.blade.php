@@ -2,10 +2,10 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h1>Master Data Item</h1>
+        <h1>Invoice</h1>
         <div class="section-header-breadcrumb">
-            <div class="breadcrumb-item active"><a href="#">Master Data</a></div>
-            <div class="breadcrumb-item"><a class="text-muted">Master Data Item</a></div>
+            <div class="breadcrumb-item active"><a href="#">Transaction</a></div>
+            <div class="breadcrumb-item"><a class="text-muted">Invoice</a></div>
         </div>
     </div>
     @php
@@ -29,117 +29,178 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>No Consign</label>
-                                    <select class="form-control select2" name="no_consign" id="no_consign">
-                                        <option disabled selected>--Select No Consign--</option>
-                                    </select>
+                                    <label>Invoice No</label>
+                                    <input type="text" class="form-control" name="no" id="no" value="" readonly>
                                 </div>       
                                 <div class="form-group">
-                                    <label>Code Tag</label>
-                                    <input type="text" class="form-control" name="tag" value="">
-                                </div>    
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" class="form-control" name="name" value="">
-                                </div>    
-                                <div class="form-group">
-                                    <label>Consignee / Owner</label>
-                                    <select class="form-control select2" name="consignee" id="consignee">
-                                        <option disabled selected>--Select Consignee--</option>
+                                    <label>Jenis Transaksi</label>
+                                    <select class="form-control select2" name="jenis_trans" id="jenis_trans">
+                                        <option disabled selected>--Select Jenis Trans--</option>
+                                        {{-- @foreach($counters as $counter)
+                                        <option>{{ $counter->name}}</option>
+                                        @endforeach --}}
                                     </select>
-                                </div>         
-                                <div class="form-group">
-                                    <label>Hp</label>
-                                    <input type="text" class="form-control" name="phone" value="">
-                                </div>            
-                                <div class="form-group">
-                                    <label>Tanggal Consigne</label>
-                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
-                                </div>                               
+                                </div>                                  
+                                {{-- <div class="form-group">
+                                    <label>Catatan</label>
+                                    <textarea class="form-control" style="height:100px" name="note"></textarea>
+                                </div>                                 --}}
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Type</label>
-                                    <select class="form-control select2" name="type" id="type">
-                                        <option disabled selected>--Select Type--</option>
-                                        <option>Bags</option>
-                                    </select>
-                                </div>  
-                                <div class="form-group">
-                                    <label>Quantity</label>
-                                    <input type="text" class="form-control" name="quantity" value="">
-                                </div> 
-                                <div class="form-group">
-                                    <label>Sat</label>
-                                    <select class="form-control select2" name="satuan" id="satuan">
-                                        <option disabled selected>--Select Sat--</option>
-                                        <option>PCS</option>
-                                    </select>
-                                </div>  
-                                <div class="form-group">
-                                    <label>Brand</label>
-                                    <select class="form-control select2" name="brand" id="brand">
-                                        <option disabled selected>--Select Brand--</option>
-                                        <option>Bags</option>
-                                    </select>
-                                </div>  
-                                <div class="form-group">
-                                    <label>Warna</label>
-                                    <input type="text" class="form-control" name="warna" value="">
+                                    <label>Tanggal Invoice</label>
+                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Size</label>
-                                    <input type="text" class="form-control" name="size" value="">
-                                </div>  
+                                    <label>Admin</label>
+                                    <input type="text" class="form-control" name="admin" id="admin" value="" readonly>
+                                </div>       
                             </div>
                             <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Harga Modal Satuan</label>
-                                            <select class="form-control select2" name="curr_type1" id="curr_type1">
-                                                <option selected>Rupiah</option>
-                                                <option>USD</option>
-                                            </select>
-                                        </div>  
-                                        <div class="form-group">
-                                            <label>Harga Jual Satuan</label>
-                                            <select class="form-control select2" name="curr_type2" id="curr_type2">
-                                                <option selected>Rupiah</option>
-                                                <option>USD</option>
-                                            </select>
-                                        </div>  
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Nominal Modal</label>
-                                            <input type="text" class="form-control" name="hrgmodal" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nominal Jual</label>
-                                            <input type="text" class="form-control" name="hrgjual" value="">
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="form-group">
-                                    <label>Spesifikasi</label>
-                                    <textarea class="form-control" style="height:100px" name="spesifikasi"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>Lokasi</label>
-                                    <select class="form-control select2" name="lokasi" id="lokasi">
-                                        <option disabled selected>--Select Lokasi--</option>
-                                        <option>JKT</option>
-                                        <option>HKT</option>
-                                        <option>AKB</option>
+                                    <label>Customer / Buyer</label>
+                                    <select class="form-control select2" name="customer" id="customer">
+                                        <option disabled selected>--Select Customer/Buyer--</option>
                                     </select>
-                                </div> 
+                                </div>  
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>No Hp #1</label>
+                                    <input type="text" class="form-control" name="nohp1" id="nohp1" value="" readonly>
+                                </div>  
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>No Hp #2</label>
+                                    <input type="text" class="form-control" name="nohp2" id="nohp2" value="" readonly>
+                                </div>  
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Header Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>No Tag</label>
+                                    <select class="form-control select2" name="notag" id="notag">
+                                        <option disabled selected>--Select No Tag--</option>
+                                    </select>
+                                </div>                                            
+                                <div class="form-group">
+                                    <label>Tgl Consign</label>
+                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
+                                </div>  
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Jenis Barang</label>
+                                    <select class="form-control select2" name="jenis_brg" id="jenis_brg">
+                                        <option disabled selected>--Select Jenis Barang--</option>
+                                    </select>
+                                </div> 
+                                <div class="form-group">
+                                    <label>Consignee</label>
+                                    <input type="text" class="form-control" name="consignee" id="consignee" value="" readonly>
+                                </div>  
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>No.HP #1</label>
+                                    <input type="text" class="form-control" name="nohp2" id="nohp2" value="" readonly>
+                                </div>  
+                                <div class="form-group">
+                                    <label>Nama Barang</label>
+                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" value="" readonly>
+                                </div>  
+                                <div class="form-group">
+                                    <label>Deskripsi Barang</label>
+                                    <textarea class="form-control" style="height:100px" name="desc_barang"></textarea>
+                                </div>  
+                            </div>                  
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Quantity</label>
+                                    <input type="text" class="form-control" name="quantity" id="quantity" value="" readonly>
+                                </div>  
+                                <div class="form-group">
+                                    <label>Merk Barang</label>
+                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                </div>  
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Kurs Beli Satuan</label>
+                                        <select class="form-control select2" name="kurs1" id="kurs1">
+                                            <option disabled selected>--Select No Tag--</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nominal Beli Satuan</label>
+                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Kurs Beli Satuan</label>
+                                        <select class="form-control select2" name="kurs1" id="kurs1">
+                                            <option disabled selected>--Select No Tag--</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Nominal Beli Satuan</label>
+                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>No Hp #2</label>
+                                    <input type="text" class="form-control" name="nohp2" id="nohp2" value="" readonly>
+                                </div>  
+                                <div class="form-group">
+                                    <label>Warna</label>
+                                    <input type="text" class="form-control" name="warna" id="warna" value="" readonly>
+                                </div>  
+                                <div class="form-group">
+                                    <label>Size</label>
+                                    <input type="text" class="form-control" name="size" id="size" value="" readonly>
+                                </div>  
+                                <div class="form-group">
+                                    <label>Material</label>
+                                    <input type="text" class="form-control" name="material" id="material" value="" readonly>
+                                </div>  
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Total</label>
+                                    <input type="text" class="form-control" name="total" id="total" value="0" readonly>
+                                </div>  
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Profit Prestige</label>
+                                    <input type="text" class="form-control" name="profit_prestige" id="profit_prestige" value="0" readonly>
+                                </div>  
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Profit Consignee</label>
+                                    <input type="text" class="form-control" name="profit_consignee" id="profit_consignee" value="0" readonly>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12">
                 <div class="card" style="border: 1px solid lightblue">
                     <div class="card-header">
                         <h4>Gambar</h4>
@@ -196,7 +257,8 @@
                     </div>      
                     <div class="col-12 col-md-6 col-lg-6 align-self-end">
                         <div class="row">
-                            <div class="col-md-8">  
+                            <div class="col-md-8">
+                                
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -225,8 +287,7 @@
 @stop
 @section('botscripts')
 <script type="text/javascript">
-
-    /*  ==========================================
+/*  ==========================================
         SHOW UPLOADED IMAGE 
     * ========================================== */
     function readURL0(input0) {
@@ -260,7 +321,7 @@
         infoArea0.textContent = 'File name: ' + fileName0;
 
     }
-
+    
     $(document).ready(function() {
         rowCount = 0;
         //CSRF TOKEN
@@ -268,7 +329,6 @@
         $(document).ready(function() {
             // $('.select2').select2({
             // });
-
 
             var counter = 1;
             $(document).on("click", "#addItem", function(e) {

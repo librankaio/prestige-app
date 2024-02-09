@@ -9,6 +9,8 @@ use App\Http\Controllers\ControllerMasterJenisBarang;
 use App\Http\Controllers\ControllerMasterMerk;
 use App\Http\Controllers\ControllerMasterSales;
 use App\Http\Controllers\ControllerMasterSatuan;
+use App\Http\Controllers\ControllerTransInvoice;
+use App\Http\Controllers\ControllerTransRetur;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +34,9 @@ Route::get('mmerk', [ControllerMasterMerk::class, 'index'])->name('mmerk');
 Route::get('msatuan', [ControllerMasterSatuan::class, 'index'])->name('msatuan');
 Route::get('mjenisbrg', [ControllerMasterJenisBarang::class, 'index'])->name('mjenisbrg');
 Route::get('mitem', [ControllerMasterDataItem::class, 'index'])->name('mitem');
+
+Route::get('tinvoice', [ControllerTransInvoice::class, 'index'])->name('tinvoice');
+Route::get('tretur', [ControllerTransRetur::class, 'index'])->name('tretur');
 
 // Route::get('/', function () {
 //     return view('welcome');
