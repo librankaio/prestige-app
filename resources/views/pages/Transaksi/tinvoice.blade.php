@@ -70,12 +70,12 @@
                                     <input type="text" class="form-control" name="nohp1" id="nohp1" value="" readonly>
                                 </div>  
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="form-group">
                                     <label>No Hp #2</label>
                                     <input type="text" class="form-control" name="nohp2" id="nohp2" value="" readonly>
                                 </div>  
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -161,10 +161,10 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>No Hp #2</label>
                                     <input type="text" class="form-control" name="nohp2" id="nohp2" value="" readonly>
-                                </div>  
+                                </div>   --}}
                                 <div class="form-group">
                                     <label>Warna</label>
                                     <input type="text" class="form-control" name="warna" id="warna" value="" readonly>
@@ -173,10 +173,10 @@
                                     <label>Size</label>
                                     <input type="text" class="form-control" name="size" id="size" value="" readonly>
                                 </div>  
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Material</label>
                                     <input type="text" class="form-control" name="material" id="material" value="" readonly>
-                                </div>  
+                                </div>   --}}
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">

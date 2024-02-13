@@ -30,9 +30,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>No Consign</label>
-                                    <select class="form-control select2" name="no_consign" id="no_consign">
-                                        <option disabled selected>--Select No Consign--</option>
-                                    </select>
+                                    <input type="text" class="form-control" name="no_consign" value="" readonly>
                                 </div>       
                                 <div class="form-group">
                                     <label>Code Tag</label>
@@ -122,7 +120,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Spesifikasi</label>
+                                    <label>Notes Kelengkapan</label>
                                     <textarea class="form-control" style="height:100px" name="spesifikasi"></textarea>
                                 </div>
                                 <div class="form-group">
@@ -166,6 +164,24 @@
                                         </div>
                                     </section>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"> 
+                                <div class="form-group">
+                                    <label>Stock</label>
+                                    <input type="text" class="form-control" name="stock" value="">
+                                </div>                        
+                            </div>
+                            <div class="col-md-6"> 
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select class="form-control select2" name="status" id="status">
+                                        <option disabled selected>--Select Status--</option>
+                                        <option>Ada</option>
+                                        <option>Kosong</option>
+                                    </select>
+                                </div>                         
                             </div>
                         </div>
                     </div>

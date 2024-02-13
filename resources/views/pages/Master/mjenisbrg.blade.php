@@ -5,7 +5,7 @@
         <h1>Master Data</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="#">Master Data</a></div>
-            <div class="breadcrumb-item"><a class="text-muted">Master Data Customer</a></div>
+            <div class="breadcrumb-item"><a class="text-muted">Master Data Jenis Barang</a></div>
         </div>
     </div>
     @php
@@ -23,7 +23,7 @@
             <div class="col-12 col-md-4 col-lg-4">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Master Data Customer</h4>
+                        <h4>Master Data Jenis Barang</h4>
                     </div>
                     <form action="" method="POST">
                         @csrf

@@ -38,6 +38,16 @@
                                         <label>Name</label>
                                         <input type="text" class="form-control" name="name" id="name">
                                     </div>
+                                    {{-- <div class="form-group">
+                                        <label>Alamat</label>
+                                        <textarea class="form-control" style="height:90px" name="alamat" id="alamat"></textarea>
+                                    </div> --}}
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Phone #1</label>
+                                        <input type="text" class="form-control" name="phone1" id="phone1">
+                                    </div>
                                     <div class="form-group">
                                         <label>Jenis Kelamin</label>
                                         <select class="form-control select2" name="gender" id="gender">
@@ -46,24 +56,14 @@
                                             <option>Wanita</option>
                                         </select>
                                     </div>  
-                                    <div class="form-group">
-                                        <label>Alamat</label>
-                                        <textarea class="form-control" style="height:90px" name="alamat" id="alamat"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Phone #1</label>
-                                        <input type="text" class="form-control" name="phone1" id="phone1">
-                                    </div>
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <label>Phone #2</label>
                                         <input type="text" class="form-control" name="phone2" id="phone2">
-                                    </div>
-                                    <div class="form-group">
+                                    </div> --}}
+                                    {{-- <div class="form-group">
                                         <label>Note *ex:berkebutuhan ninja</label>
                                         <textarea class="form-control" style="height:90px" name="note" id="note"></textarea>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
