@@ -30,12 +30,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Retur No</label>
-                                    <input type="text" class="form-control" name="no" id="no" value="" readonly>
+                                    <input type="text" class="form-control" name="no" id="no" value="wqe" readonly>
                                 </div>       
                                 <div class="form-group">
                                     <label>Jenis Retur</label>
-                                    <select class="form-control select2" name="jenis_trans" id="jenis_trans">
+                                    <select class="form-control select2" name="jenis_retur" id="jenis_trans">
                                         <option disabled selected>--Select Jenis Retur--</option>
+                                        <option>Sasxs</option>
                                         {{-- @foreach($counters as $counter)
                                         <option>{{ $counter->name}}</option>
                                         @endforeach --}}
@@ -53,7 +54,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Sales</label>
-                                    <input type="text" class="form-control" name="admin" id="admin" value="" readonly>
+                                    <input type="text" class="form-control" name="sales" id="sales" value="wqe" readonly>
                                 </div>       
                             </div>
                         </div>
@@ -72,6 +73,7 @@
                                     <label>No Invoice</label>
                                     <select class="form-control select2" name="notag" id="notag">
                                         <option disabled selected>--Select No Invoice--</option>
+                                        <option>Sasxs</option>
                                     </select>
                                 </div>                                            
                                 <div class="form-group">
@@ -84,19 +86,21 @@
                                     <label>Jenis Barang</label>
                                     <select class="form-control select2" name="jenis_brg" id="jenis_brg">
                                         <option disabled selected>--Select Jenis Barang--</option>
+                                        <option>Sasxs</option>
                                     </select>
                                 </div> 
                                 <div class="form-group">
                                     <label>Jenis Barang</label>
                                     <select class="form-control select2" name="jenis_brg" id="jenis_brg">
                                         <option disabled selected>--Select Jenis Barang--</option>
+                                        <option>Sasxs</option>
                                     </select>
                                 </div> 
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Nama Barang</label>
-                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" value="" readonly>
+                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" value="wqr" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Deskripsi Barang</label>
@@ -106,22 +110,23 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Quantity</label>
-                                    <input type="text" class="form-control" name="quantity" id="quantity" value="" readonly>
+                                    <input type="text" class="form-control" name="quantity" id="quantity" value="1" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Merk Barang</label>
-                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="wqe" readonly>
                                 </div>  
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Kurs Beli Satuan</label>
                                         <select class="form-control select2" name="kurs1" id="kurs1">
                                             <option disabled selected>--Select No Tag--</option>
+                                            <option>Sasxs</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Nominal Beli Satuan</label>
-                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="200" readonly>
                                     </div>
                                 </div>
                                 <br>
@@ -130,11 +135,12 @@
                                         <label>Kurs Beli Satuan</label>
                                         <select class="form-control select2" name="kurs1" id="kurs1">
                                             <option disabled selected>--Select No Tag--</option>
+                                            <option>Sasxs</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Nominal Beli Satuan</label>
-                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="200" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -143,19 +149,20 @@
                                     <label>Satuan</label>
                                     <select class="form-control select2" name="satuan" id="satuan">
                                         <option disabled selected>--Select Satuan--</option>
+                                        <option>Sasxs</option>
                                     </select>
                                 </div> 
                                 <div class="form-group">
                                     <label>Warna</label>
-                                    <input type="text" class="form-control" name="warna" id="warna" value="" readonly>
+                                    <input type="text" class="form-control" name="warna" id="warna" value="wqe" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Size</label>
-                                    <input type="text" class="form-control" name="size" id="size" value="" readonly>
+                                    <input type="text" class="form-control" name="size" id="size" value="we" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Material</label>
-                                    <input type="text" class="form-control" name="material" id="material" value="" readonly>
+                                    <input type="text" class="form-control" name="material" id="material" value="we" readonly>
                                 </div>  
                             </div>
                             <div class="col-md-12">
@@ -218,6 +225,7 @@
                                     <label>Alasan Retur</label>
                                     <select class="form-control select2" name="notag" id="notag">
                                         <option disabled selected>--Select Alasan Retur--</option>
+                                        <option>Xass</option>
                                     </select>
                                 </div>                                            
                                 <div class="form-group">
@@ -230,11 +238,12 @@
                                     <label>Jenis Pembayaran</label>
                                     <select class="form-control select2" name="notag" id="notag">
                                         <option disabled selected>--Select Jenis Pembayaran--</option>
+                                        <option>Xass</option>
                                     </select>
                                 </div>  
                                 <div class="form-group">
                                     <label>Info Rekening</label>
-                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="wqe" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Tgl Bayar</label>
@@ -242,6 +251,16 @@
                                 </div>  
                             </div>
                         </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <a class="btn btn-warning mr-1" href="/tsoblist">List</a>
+                        <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('treturpost') }}">Save</button>
+                        {{-- @if($tpos_save == 'Y')
+                            <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('transpospost') }}">Submit</button>
+                        @elseif($tpos_save == 'N' || $tpos_save == null)
+                            <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('transpospost') }}" disabled>Submit</button>
+                        @endif --}}
+                        {{-- <button class="btn btn-secondary" type="reset">Reset</button> --}}
                     </div>
                 </div>
             </div>
@@ -519,20 +538,7 @@
             }
         });
 
-        $(document).on("click","#confirm",function(e){
-            // Validate ifnull
-            no = $("#no").val();
-            counter = $("#counter").prop('selectedIndex');
-            if (rowCount == 0){
-                swal('WARNING', 'Silahkan Masukkan data detail terlebih dahulu!', 'warning');
-                return false;
-            }
-            else if (no == ""){
-                swal('WARNING', 'No Tidak boleh kosong!', 'warning');
-                return false;
-            }
-        });
-
+        
         $(document).on('focusout', '.row_qty', function(event) 
             {
                 event.preventDefault();

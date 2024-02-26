@@ -30,65 +30,65 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>No Consign</label>
-                                    <input type="text" class="form-control" name="no_consign" value="TEST" readonly>
+                                    <input type="text" class="form-control" name="no_consign" value="{{ $mitem->no_consign }}" readonly>
                                 </div>       
                                 <div class="form-group">
                                     <label>Code Tag</label>
-                                    <input type="text" class="form-control" name="tag" value="">
+                                    <input type="text" class="form-control" name="tag" value="{{ $mitem->code_tag }}">
                                 </div>    
                                 <div class="form-group">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" name="name" value="">
+                                    <input type="text" class="form-control" name="name" value="{{ $mitem->name }}">
                                 </div>    
                                 <div class="form-group">
                                     <label>Consignee / Owner</label>
                                     <select class="form-control select2" name="consignee" id="consignee">
-                                        <option disabled selected>--Select Consignee--</option>
+                                        <option selected>{{ $mitem->consignee }}</option>
                                         <option>SAZZZ</option>
                                     </select>
                                 </div>         
                                 <div class="form-group">
                                     <label>Hp</label>
-                                    <input type="text" class="form-control" name="phone" value="">
+                                    <input type="text" class="form-control" name="phone" value="{{ $mitem->phone }}">
                                 </div>            
                                 <div class="form-group">
                                     <label>Tanggal Consigne</label>
-                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
+                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d", strtotime($mitem->tgl_consign)) }}">
                                 </div>                               
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Type</label>
                                     <select class="form-control select2" name="type" id="type">
-                                        <option disabled selected>--Select Type--</option>
+                                        <option selected>{{ $mitem->type }}</option>
                                         <option>Bags</option>
                                     </select>
                                 </div>  
                                 <div class="form-group">
                                     <label>Quantity</label>
-                                    <input type="text" class="form-control" name="quantity" value="">
+                                    <input type="text" class="form-control" name="quantity" value="{{ $mitem->quantity }}">
                                 </div> 
                                 <div class="form-group">
                                     <label>Sat</label>
                                     <select class="form-control select2" name="satuan" id="satuan">
-                                        <option disabled selected>--Select Sat--</option>
+                                        <option selected>{{ $mitem->satuan }}</option>
                                         <option>PCS</option>
                                     </select>
                                 </div>  
                                 <div class="form-group">
                                     <label>Brand</label>
                                     <select class="form-control select2" name="brand" id="brand">
-                                        <option disabled selected>--Select Brand--</option>
+                                        <option selected>{{ $mitem->brand }}</option>
                                         <option>Bags</option>
                                     </select>
                                 </div>  
                                 <div class="form-group">
                                     <label>Warna</label>
-                                    <input type="text" class="form-control" name="warna" value="">
+                                    <input type="text" class="form-control" name="warna" value="{{ $mitem->warna }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Size</label>
-                                    <input type="text" class="form-control" name="size" value="">
+                                    <input type="text" class="form-control" name="size" value="{{ $mitem->size }}">
                                 </div>  
                             </div>
                             <div class="col-md-12">
@@ -97,14 +97,16 @@
                                         <div class="form-group">
                                             <label>Harga Modal Satuan</label>
                                             <select class="form-control select2" name="curr_type1" id="curr_type1">
-                                                <option selected>Rupiah</option>
+                                                <option selected>{{ $mitem->kurs_modal }}</option>
+                                                <option>Rupiah</option>
                                                 <option>USD</option>
                                             </select>
                                         </div>  
                                         <div class="form-group">
                                             <label>Harga Jual Satuan</label>
                                             <select class="form-control select2" name="curr_type2" id="curr_type2">
-                                                <option selected>Rupiah</option>
+                                                <option selected>{{ $mitem->kurs_jual }}</option>
+                                                <option>Rupiah</option>
                                                 <option>USD</option>
                                             </select>
                                         </div>  
@@ -112,17 +114,17 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Nominal Modal</label>
-                                            <input type="text" class="form-control" name="hrgmodal" value="">
+                                            <input type="text" class="form-control" name="hrgmodal" value="{{ $mitem->nominal_modal }}">
                                         </div>
                                         <div class="form-group">
                                             <label>Nominal Jual</label>
-                                            <input type="text" class="form-control" name="hrgjual" value="">
+                                            <input type="text" class="form-control" name="hrgjual" value="{{ $mitem->nominal_jual }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Notes Kelengkapan</label>
-                                    <textarea class="form-control" style="height:100px" name="spesifikasi"></textarea>
+                                    <textarea class="form-control" style="height:100px" name="spesifikasi">{{ $mitem->note }}</textarea>
                                 </div>
                                 {{-- <div class="form-group">
                                     <label>Lokasi</label>
@@ -179,90 +181,20 @@
                             <div class="col-md-6"> 
                                 <div class="form-group">
                                     <label>Stock</label>
-                                    <input type="text" class="form-control" name="stock" value="">
+                                    <input type="text" class="form-control" name="stock" value="{{ $mitem->stock }}">
                                 </div>                        
                             </div>
                             <div class="col-md-6"> 
                                 <div class="form-group">
                                     <label>Status</label>
                                     <select class="form-control select2" name="status" id="status">
-                                        <option disabled selected>--Select Status--</option>
+                                        <option selected>{{ $mitem->status }}</option>
                                         <option>Ada</option>
                                         <option>Kosong</option>
                                     </select>
                                 </div>                         
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-12 col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="datatable">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="border border-5">No</th>
-                                        <th scope="col" class="border border-5">No Consign</th>
-                                        <th scope="col" class="border border-5">Code Tag</th>
-                                        <th scope="col" class="border border-5">Type</th>
-                                        <th scope="col" class="border border-5">Quantity</th>
-                                        <th scope="col" class="border border-5">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php $counter = 0 @endphp
-                                    @foreach($datas as $data => $item)
-                                    @php $counter++ @endphp
-                                    <tr>
-                                        <th scope="row" class="border border-5" style="text-align: center;">{{ $counter }}</th>
-                                        <th scope="row" class="border border-5" style="text-align: center;">{{ $item->no_consign }}</th>
-                                        <th scope="row" class="border border-5" style="text-align: center;">{{ $item->code_tag }}</th>
-                                        <th scope="row" class="border border-5" style="text-align: center;">{{ $item->type }}</th>
-                                        <th scope="row" class="border border-5" style="text-align: center;">{{ $item->quantity }}</th>
-                                        <td style="text-align: center;" class="d-flex justify-content-center">
-                                            <a href="/mitem/{{ $item->id }}/edit"
-                                                class="btn btn-icon icon-left btn-primary"><i class="far fa-edit">
-                                                    Edit</i></a>
-                                            <form action="/mlokasi/delete/{{ $item->id }}" id="del-{{ $item->id }}"
-                                                method="POST" class="px-2">
-                                                @csrf
-                                                <button class="btn btn-icon icon-left btn-danger"
-                                                    id="del-/{{ $item->id }}" type="submit"
-                                                    data-confirm="WARNING!|Do you want to delete {{ $item->name }} data?"
-                                                    data-confirm-yes="submitDel({{ $item->id }})"><i
-                                                        class="fa fa-trash">
-                                                        Delete</i></button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>                            
-                            </table>
-                        </div>                                              
-                    </div>      
-                    <div class="col-12 col-md-6 col-lg-6 align-self-end">
-                        <div class="row">
-                            <div class="col-md-8">  
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Total</label>
-                                    <input type="text" class="form-control" name="price_total" form="thisform" id="price_total" readonly>
-                                </div>
-                            </div>
-                        </div>
-                    </div>              
-                    <div class="card-footer text-right">
-                        <a class="btn btn-warning mr-1" href="/tsoblist">List</a>
-                        <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('mitempost') }}">Save</button>
-                        {{-- @if($tpos_save == 'Y')
-                            <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('transpospost') }}">Submit</button>
-                        @elseif($tpos_save == 'N' || $tpos_save == null)
-                            <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('transpospost') }}" disabled>Submit</button>
-                        @endif --}}
-                        {{-- <button class="btn btn-secondary" type="reset">Reset</button> --}}
                     </div>
                 </div>
             </div>

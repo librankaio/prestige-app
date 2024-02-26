@@ -30,12 +30,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Invoice No</label>
-                                    <input type="text" class="form-control" name="no" id="no" value="" readonly>
+                                    <input type="text" class="form-control" name="no" id="no" value="wqe" readonly>
                                 </div>       
                                 <div class="form-group">
                                     <label>Jenis Transaksi</label>
                                     <select class="form-control select2" name="jenis_trans" id="jenis_trans">
                                         <option disabled selected>--Select Jenis Trans--</option>
+                                        <option>SWWE</option>
                                         {{-- @foreach($counters as $counter)
                                         <option>{{ $counter->name}}</option>
                                         @endforeach --}}
@@ -53,7 +54,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Admin</label>
-                                    <input type="text" class="form-control" name="admin" id="admin" value="" readonly>
+                                    <input type="text" class="form-control" name="admin" id="admin" value="XSD" readonly>
                                 </div>       
                             </div>
                             <div class="col-md-12">
@@ -61,13 +62,14 @@
                                     <label>Customer / Buyer</label>
                                     <select class="form-control select2" name="customer" id="customer">
                                         <option disabled selected>--Select Customer/Buyer--</option>
+                                        <option>XZXX</option>
                                     </select>
                                 </div>  
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>No Hp #1</label>
-                                    <input type="text" class="form-control" name="nohp1" id="nohp1" value="" readonly>
+                                    <input type="text" class="form-control" name="nohp1" id="nohp1" value="SWE" readonly>
                                 </div>  
                             </div>
                             {{-- <div class="col-md-6">
@@ -92,6 +94,7 @@
                                     <label>No Tag</label>
                                     <select class="form-control select2" name="notag" id="notag">
                                         <option disabled selected>--Select No Tag--</option>
+                                        <option>XEWE</option>
                                     </select>
                                 </div>                                            
                                 <div class="form-group">
@@ -104,21 +107,22 @@
                                     <label>Jenis Barang</label>
                                     <select class="form-control select2" name="jenis_brg" id="jenis_brg">
                                         <option disabled selected>--Select Jenis Barang--</option>
+                                        <option>XEWE</option>
                                     </select>
                                 </div> 
                                 <div class="form-group">
                                     <label>Consignee</label>
-                                    <input type="text" class="form-control" name="consignee" id="consignee" value="" readonly>
+                                    <input type="text" class="form-control" name="consignee" id="consignee" value="weqe" readonly>
                                 </div>  
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>No.HP #1</label>
-                                    <input type="text" class="form-control" name="nohp2" id="nohp2" value="" readonly>
+                                    <input type="text" class="form-control" name="nohp" id="nohp" value="qwewqe" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Nama Barang</label>
-                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" value="" readonly>
+                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" value="wqe" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Deskripsi Barang</label>
@@ -128,22 +132,23 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Quantity</label>
-                                    <input type="text" class="form-control" name="quantity" id="quantity" value="" readonly>
+                                    <input type="text" class="form-control" name="quantity" id="quantity" value="wqe" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Merk Barang</label>
-                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="wqe" readonly>
                                 </div>  
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Kurs Beli Satuan</label>
                                         <select class="form-control select2" name="kurs1" id="kurs1">
                                             <option disabled selected>--Select No Tag--</option>
+                                            <option>XEWE</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Nominal Beli Satuan</label>
-                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="wew" readonly>
                                     </div>
                                 </div>
                                 <br>
@@ -152,11 +157,12 @@
                                         <label>Kurs Beli Satuan</label>
                                         <select class="form-control select2" name="kurs1" id="kurs1">
                                             <option disabled selected>--Select No Tag--</option>
+                                            <option>XEWE</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Nominal Beli Satuan</label>
-                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="wqe" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -167,11 +173,11 @@
                                 </div>   --}}
                                 <div class="form-group">
                                     <label>Warna</label>
-                                    <input type="text" class="form-control" name="warna" id="warna" value="" readonly>
+                                    <input type="text" class="form-control" name="warna" id="warna" value="wqe" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Size</label>
-                                    <input type="text" class="form-control" name="size" id="size" value="" readonly>
+                                    <input type="text" class="form-control" name="size" id="size" value="qwe" readonly>
                                 </div>  
                                 {{-- <div class="form-group">
                                     <label>Material</label>
@@ -270,7 +276,7 @@
                     </div>              
                     <div class="card-footer text-right">
                         <a class="btn btn-warning mr-1" href="/tsoblist">List</a>
-                        <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="#">Save</button>
+                        <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('tinvoicepost') }}">Save</button>
                         {{-- @if($tpos_save == 'Y')
                             <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('transpospost') }}">Submit</button>
                         @elseif($tpos_save == 'N' || $tpos_save == null)
@@ -554,19 +560,7 @@
             }
         });
 
-        $(document).on("click","#confirm",function(e){
-            // Validate ifnull
-            no = $("#no").val();
-            counter = $("#counter").prop('selectedIndex');
-            if (rowCount == 0){
-                swal('WARNING', 'Silahkan Masukkan data detail terlebih dahulu!', 'warning');
-                return false;
-            }
-            else if (no == ""){
-                swal('WARNING', 'No Tidak boleh kosong!', 'warning');
-                return false;
-            }
-        });
+        
 
         $(document).on('focusout', '.row_qty', function(event) 
             {

@@ -81,7 +81,7 @@
                         </div>
                         <div class="card-footer text-right">    
                             <button class="btn btn-primary mr-1" type="submit"
-                                formaction="#" id="confirm">Save</button>
+                                formaction="{{ route('mcustpost') }}" id="confirm">Save</button>
                             <button class="btn btn-secondary" type="reset">Cancel</button>
                         </div>
                     </form>
@@ -97,13 +97,14 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" class="border border-5" style="text-align: center;">No</th>
-                                        <th scope="col" class="border border-5" style="text-align: center;">Kode Counter</th>
+                                        <th scope="col" class="border border-5" style="text-align: center;">Kode</th>
                                         <th scope="col" class="border border-5" style="text-align: center;">Nama</th>
-                                        <th scope="col" class="border border-5" style="text-align: center;">Alamat</th>
+                                        <th scope="col" class="border border-5" style="text-align: center;">Email</th>
+                                        <th scope="col" class="border border-5" style="text-align: center;">Social Media</th>
                                         <th scope="col" class="border border-5" style="text-align: center;">Action</th>
                                     </tr>
                                 </thead>
-                                {{-- <tbody>
+                                <tbody>
                                     @php $counter = 0 @endphp
                                     @foreach($datas as $data => $item)
                                     @php $counter++ @endphp
@@ -111,9 +112,10 @@
                                         <th scope="row" class="border border-5" style="text-align: center;">{{ $counter }}</th>
                                         <td class="border border-5" style="text-align: center;">{{ $item->code }}</td>
                                         <td class="border border-5" style="text-align: center;">{{ $item->name }}</td>
-                                        <td class="border border-5" style="text-align: center;">{{ $item->alamat }}</td>
+                                        <td class="border border-5" style="text-align: center;">{{ $item->email }}</td>
+                                        <td class="border border-5" style="text-align: center;">{{ $item->socmed }}</td>
                                         <td style="text-align: center;" class="d-flex justify-content-center">
-                                            <a href="/mlokasi/{{ $item->id }}/edit"
+                                            <a href="/mcust/{{ $item->id }}/edit"
                                                 class="btn btn-icon icon-left btn-primary"><i class="far fa-edit">
                                                     Edit</i></a>
                                             <form action="/mlokasi/delete/{{ $item->id }}" id="del-{{ $item->id }}"
@@ -129,7 +131,7 @@
                                         </td>
                                     </tr>
                                     @endforeach
-                                </tbody> --}}
+                                </tbody>
                             </table>
                         </div>
                     </div>

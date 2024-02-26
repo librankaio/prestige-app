@@ -5,7 +5,7 @@
         <h1>Master Data</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="#">Master Data</a></div>
-            <div class="breadcrumb-item"><a class="text-muted">Master Data Sales</a></div>
+            <div class="breadcrumb-item"><a class="text-muted">Master Data Sales Edit</a></div>
         </div>
     </div>
     @php
@@ -23,7 +23,7 @@
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Master Data Sales</h4>
+                        <h4>Master Data Sales Edit</h4>
                     </div>
                     <form action="" method="POST">
                         @csrf
@@ -32,11 +32,11 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Code</label>
-                                        <input type="text" class="form-control" name="code" id="code">
+                                        <input type="text" class="form-control" name="code" id="code" value="{{ $msale->code }}">
                                     </div>
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" class="form-control" name="name" id="name">
+                                        <input type="text" class="form-control" name="name" id="name" value="{{ $msale->name }}">
                                     </div>
                                     {{-- <div class="form-group">
                                         <label>Alamat</label>
@@ -46,12 +46,12 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Phone #1</label>
-                                        <input type="text" class="form-control" name="phone1" id="phone1">
+                                        <input type="text" class="form-control" name="phone1" id="phone1" value="{{ $msale->phone }}">
                                     </div>
                                     <div class="form-group">
                                         <label>Jenis Kelamin</label>
                                         <select class="form-control select2" name="gender" id="gender">
-                                            <option disabled selected>--Select Jenis Kelamin(DIGAMBAR)--</option>
+                                            <option disabled selected>{{ $msale->jenis_kelamin }}</option>
                                             <option>Pria-punya selera</option>
                                             <option>Wanita</option>
                                         </select>
@@ -75,56 +75,6 @@
                     </form>
                 </div>
             </div>            
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="datatable">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="border border-5" style="text-align: center;">No</th>
-                                        <th scope="col" class="border border-5" style="text-align: center;">Kode</th>
-                                        <th scope="col" class="border border-5" style="text-align: center;">Nama</th>
-                                        <th scope="col" class="border border-5" style="text-align: center;">Phone</th>
-                                        <th scope="col" class="border border-5" style="text-align: center;">Jenis Kelamin</th>
-                                        <th scope="col" class="border border-5" style="text-align: center;">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php $counter = 0 @endphp
-                                    @foreach($datas as $data => $item)
-                                    @php $counter++ @endphp
-                                    <tr>
-                                        <th scope="row" class="border border-5" style="text-align: center;">{{ $counter }}</th>
-                                        <td class="border border-5" style="text-align: center;">{{ $item->code }}</td>
-                                        <td class="border border-5" style="text-align: center;">{{ $item->name }}</td>
-                                        <td class="border border-5" style="text-align: center;">{{ $item->phone }}</td>
-                                        <td class="border border-5" style="text-align: center;">{{ $item->jenis_kelamin }}</td>
-                                        <td style="text-align: center;" class="d-flex justify-content-center">
-                                            <a href="/msales/{{ $item->id }}/edit"
-                                                class="btn btn-icon icon-left btn-primary"><i class="far fa-edit">
-                                                    Edit</i></a>
-                                            <form action="/mlokasi/delete/{{ $item->id }}" id="del-{{ $item->id }}"
-                                                method="POST" class="px-2">
-                                                @csrf
-                                                <button class="btn btn-icon icon-left btn-danger"
-                                                    id="del-/{{ $item->id }}" type="submit"
-                                                    data-confirm="WARNING!|Do you want to delete {{ $item->name }} data?"
-                                                    data-confirm-yes="submitDel({{ $item->id }})"><i
-                                                        class="fa fa-trash">
-                                                        Delete</i></button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>

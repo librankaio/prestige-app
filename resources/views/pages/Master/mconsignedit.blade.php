@@ -32,11 +32,11 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Code</label>
-                                        <input type="text" class="form-control" name="code" id="code">
+                                        <input type="text" class="form-control" name="code" id="code" value="{{ $mconsign->code }}">
                                     </div>
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input type="text" class="form-control" name="name" id="name">
+                                        <input type="text" class="form-control" name="name" id="name" value="{{ $mconsign->name }}">
                                     </div>
                                     {{-- <div class="form-group">
                                         <label>KTP</label>
@@ -45,7 +45,7 @@
                                     <div class="form-group">
                                         <label>Jenis Kelamin</label>
                                         <select class="form-control select2" name="gender" id="gender">
-                                            <option disabled selected>--Select Jenis Kelamin(DIGAMBAR)--</option>
+                                            <option disabled selected>{{ $mconsign->jenis_kelamin }}</option>
                                             <option>Pria-punya selera</option>
                                             <option>Wanita</option>
                                         </select>
@@ -54,7 +54,7 @@
                                 <div class="col-md-6">                                    
                                     <div class="form-group">
                                         <label>Phone #1</label>
-                                        <input type="text" class="form-control" name="phone1" id="phone1">
+                                        <input type="text" class="form-control" name="phone1" id="phone1" value="{{ $mconsign->phone }}">
                                     </div>
                                     {{-- <div class="form-group">
                                         <label>Phone #2</label>
@@ -62,11 +62,11 @@
                                     </div> --}}
                                     <div class="form-group">
                                         <label>Rekening</label>
-                                        <input type="text" class="form-control" name="rekening" id="rekening">
+                                        <input type="text" class="form-control" name="rekening" id="rekening" value="{{ $mconsign->rekening }}">
                                     </div>            
                                     <div class="form-group">
                                         <label>Alamat</label>
-                                        <textarea class="form-control" style="height:90px" name="alamat" id="alamat"></textarea>
+                                        <textarea class="form-control" style="height:90px" name="alamat" id="alamat">{{ $mconsign->alamat }}</textarea>
                                     </div>                          
                                     {{-- <div class="form-group">
                                         <label>Note *ex:berkebutuhan ninja</label>
@@ -77,60 +77,12 @@
                         </div>
                         <div class="card-footer text-right">    
                             <button class="btn btn-primary mr-1" type="submit"
-                                formaction="{{ route('mconsignpost') }}" id="confirm">Save</button>
+                                formaction="{{ route('mconsignpost') }}" id="confirm">Update</button>
                             <button class="btn btn-secondary" type="reset">Cancel</button>
                         </div>
                     </form>
                 </div>
             </div>            
-        </div>
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="datatable">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="border border-5" style="text-align: center;">No</th>
-                                        <th scope="col" class="border border-5" style="text-align: center;">Kode</th>
-                                        <th scope="col" class="border border-5" style="text-align: center;">Nama</th>
-                                        <th scope="col" class="border border-5" style="text-align: center;">Phone</th>
-                                        <th scope="col" class="border border-5" style="text-align: center;">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php $counter = 0 @endphp
-                                    @foreach($datas as $data => $item)
-                                    @php $counter++ @endphp
-                                    <tr>
-                                        <th scope="row" class="border border-5" style="text-align: center;">{{ $counter }}</th>
-                                        <td class="border border-5" style="text-align: center;">{{ $item->code }}</td>
-                                        <td class="border border-5" style="text-align: center;">{{ $item->name }}</td>
-                                        <td class="border border-5" style="text-align: center;">{{ $item->phone }}</td>
-                                        <td style="text-align: center;" class="d-flex justify-content-center">
-                                            <a href="/mconsign/{{ $item->id }}/edit"
-                                                class="btn btn-icon icon-left btn-primary"><i class="far fa-edit">
-                                                    Edit</i></a>
-                                            <form action="/mlokasi/delete/{{ $item->id }}" id="del-{{ $item->id }}"
-                                                method="POST" class="px-2">
-                                                @csrf
-                                                <button class="btn btn-icon icon-left btn-danger"
-                                                    id="del-/{{ $item->id }}" type="submit"
-                                                    data-confirm="WARNING!|Do you want to delete {{ $item->name }} data?"
-                                                    data-confirm-yes="submitDel({{ $item->id }})"><i
-                                                        class="fa fa-trash">
-                                                        Delete</i></button>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </section>
