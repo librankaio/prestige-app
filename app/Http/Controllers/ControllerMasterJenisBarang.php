@@ -29,4 +29,19 @@ class ControllerMasterJenisBarang extends Controller
     public function getedit(Mjenisbrg $mjenisbrg){
         return view('pages.Master.mjenisbrgedit',[ 'mjenisbrg' => $mjenisbrg]);
     }
+
+    public function update(Mjenisbrg $mmerk){
+        Mjenisbrg::where('id', '=', $mmerk->id)->update([
+            'code' => request('kode'),
+            'name' => request('nama'),
+            'note' => request('note'),
+        ]);
+
+        return redirect()->route('mmerk')->with('success', 'Data berhasil di update');
+    }
+
+    public function delete(Mjenisbrg $mjenisbrg){
+        Mjenisbrg::find($mjenisbrg->id)->delete();
+        return redirect()->route('mmerk');
+    }
 }

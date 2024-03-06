@@ -17,8 +17,8 @@
                 @include('layouts.flash-message')
             </div>
         </div>
-        <form action="" method="POST" id="thisform" enctype="multipart/form-data">
-            @csrf
+    <form action="" method="POST" id="thisform" enctype="multipart/form-data">
+        @csrf
         <div class="row">
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="card">
@@ -66,12 +66,12 @@
                                 </div>  
                                 <div class="form-group">
                                     <label>Quantity</label>
-                                    <input type="text" class="form-control" name="quantity" value="{{ $mitem->quantity }}">
+                                    <input type="text" class="form-control" name="quantity" value="{{ $mitem->qty }}">
                                 </div> 
                                 <div class="form-group">
                                     <label>Sat</label>
                                     <select class="form-control select2" name="satuan" id="satuan">
-                                        <option selected>{{ $mitem->satuan }}</option>
+                                        <option selected>{{ $mitem->sat }}</option>
                                         <option>PCS</option>
                                     </select>
                                 </div>  
@@ -138,6 +138,11 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card-footer text-right">    
+                        <button class="btn btn-primary mr-1" type="submit"
+                        formaction="/mitem/{{ $mitem->id }}" id="confirm">Update</button>
+                        <button class="btn btn-secondary" type="reset">Cancel</button>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-6">
@@ -197,7 +202,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>            
         </div>
     </form>
     </div>

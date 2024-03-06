@@ -69,7 +69,7 @@
                         </div>
                         <div class="card-footer text-right">    
                             <button class="btn btn-primary mr-1" type="submit"
-                                formaction="{{ route('msalespost') }}" id="confirm">Save</button>
+                            formaction="/msales/{{ $msale->id }}" id="confirm">Update</button>
                             <button class="btn btn-secondary" type="reset">Cancel</button>
                         </div>
                     </form>

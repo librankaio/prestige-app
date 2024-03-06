@@ -118,7 +118,7 @@
                                             <a href="/mcust/{{ $item->id }}/edit"
                                                 class="btn btn-icon icon-left btn-primary"><i class="far fa-edit">
                                                     Edit</i></a>
-                                            <form action="/mlokasi/delete/{{ $item->id }}" id="del-{{ $item->id }}"
+                                            <form action="/mcust/delete/{{ $item->id }}" id="del-{{ $item->id }}"
                                                 method="POST" class="px-2">
                                                 @csrf
                                                 <button class="btn btn-icon icon-left btn-danger"

@@ -52,6 +52,11 @@ class ControllerMasterCustomer extends Controller
             'note' => request('note'),
         ]);
 
-        return redirect()->route('mconsign');
+        return redirect()->route('mcust')->with('success', 'Data berhasil di update');
+    }
+
+    public function delete(Mcust $mcust){
+        Mcust::find($mcust->id)->delete();
+        return redirect()->route('mcust');
     }
 }

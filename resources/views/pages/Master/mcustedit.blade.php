@@ -81,7 +81,7 @@
                         </div>
                         <div class="card-footer text-right">    
                             <button class="btn btn-primary mr-1" type="submit"
-                                formaction="{{ route('mcustpost') }}" id="confirm">Update</button>
+                            formaction="/mcust/{{ $mcust->id }}" id="confirm">Update</button>
                             <button class="btn btn-secondary" type="reset">Cancel</button>
                         </div>
                     </form>

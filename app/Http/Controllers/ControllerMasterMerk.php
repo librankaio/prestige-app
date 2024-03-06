@@ -29,4 +29,19 @@ class ControllerMasterMerk extends Controller
     public function getedit(Mmerk $mmerk){
         return view('pages.Master.mmerkedit',[ 'mmerk' => $mmerk]);
     }
+
+    public function update(Mmerk $mmerk){
+        Mmerk::where('id', '=', $mmerk->id)->update([
+            'code' => request('kode'),
+            'name' => request('nama'),
+            'note' => request('note'),
+        ]);
+
+        return redirect()->route('mmerk')->with('success', 'Data berhasil di update');
+    }
+
+    public function delete(Mmerk $mmerk){
+        Mmerk::find($mmerk->id)->delete();
+        return redirect()->route('mmerk');
+    }
 }

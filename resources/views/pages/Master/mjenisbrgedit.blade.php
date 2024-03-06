@@ -49,7 +49,7 @@
                         </div>
                         <div class="card-footer text-right">    
                             <button class="btn btn-primary mr-1" type="submit"
-                                formaction="{{ route('mjenisbrgpost') }}" id="confirm">Update</button>
+                            formaction="/mjenisbrg/{{ $mjenisbrg->id }}" id="confirm">Update</button>
                             <button class="btn btn-secondary" type="reset">Cancel</button>
                         </div>
                     </form>

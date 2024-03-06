@@ -45,4 +45,9 @@ class ControllerMasterConsignee extends Controller
 
         return redirect()->route('mconsign');
     }
+
+    public function delete(Mconsign $mconsign){
+        Mconsign::find($mconsign->id)->delete();
+        return redirect()->route('mconsign');
+    }
 }

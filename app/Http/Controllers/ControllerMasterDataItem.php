@@ -55,6 +55,7 @@ class ControllerMasterDataItem extends Controller
     }
 
     public function update(Mitem $mitem){
+        // dd(request()->all());
         Mitem::where('id', '=', $mitem->id)->update([
             'no_consign' => Request('no_consign'),
             'code_tag' => Request('tag'),
@@ -75,19 +76,24 @@ class ControllerMasterDataItem extends Controller
             'nominal_modal' => Request('hrgmodal'),
             'kurs_jual' => Request('curr_type2'),
             'nominal_jual' => Request('hrgjual'),
-            'pict' => request()->file("upload0")->hashname(),
+            // 'pict' => request()->file("upload0")->hashname(),
             'stock' => Request('stock'),
             'status' => Request('status'),
         ]);
-        if(request()->file('upload0')!=null){
-            if(Storage::exists('images/'.request('upload0'))){
-                Storage::delete('images/'.request()->$hdnupload);
-                // dd($hdnupload);
-            }
-            request()->file('upload0')->store('images');
-            DB::table('twoh_pic')->where('name_mcar','=',request()->platnum)->where('pic','=',request()->$hdnupload)->update(['pic'=>request()->file('upload0')->hashname(), 'note' => request()->$desc]);
-        }
+        // if(request()->file('upload0')!=null){
+        //     if(Storage::exists('images/'.request('upload0'))){
+        //         Storage::delete('images/'.request()->$hdnupload);
+        //         // dd($hdnupload);
+        //     }
+        //     request()->file('upload0')->store('images');
+        //     DB::table('twoh_pic')->where('name_mcar','=',request()->platnum)->where('pic','=',request()->$hdnupload)->update(['pic'=>request()->file('upload0')->hashname(), 'note' => request()->$desc]);
+        // }
 
-        return redirect()->route('mconsign');
+        return redirect()->route('mitem');
+    }
+
+    public function delete(Mitem $mitem){
+        Mitem::find($mitem->id)->delete();
+        return redirect()->route('mitem');
     }
 }
