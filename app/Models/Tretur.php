@@ -26,6 +26,8 @@ class Tretur extends Model
         'warna',
         'size',
         'material',
+        'nominal_beli1',
+        'nominal_beli2',
         'kursbeli1',
         'kursbeli2',
         'total',

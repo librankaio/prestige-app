@@ -17,7 +17,7 @@
                 @include('layouts.flash-message')
             </div>
         </div>
-        <form action="" method="POST" id="thisform">
+        <form action="" method="POST" id="thisform" enctype="multipart/form-data">
             @csrf
         <div class="row">
             <div class="col-12 col-md-6 col-lg-6">
@@ -50,7 +50,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tanggal Retur</label>
-                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
+                                    <input type="date" class="form-control" name="dt_retur" value="{{ date("Y-m-d") }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Sales</label>
@@ -71,24 +71,21 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>No Invoice</label>
-                                    <select class="form-control select2" name="notag" id="notag">
+                                    <select class="form-control select2" name="no_invoice" id="no_invoice">
                                         <option disabled selected>--Select No Invoice--</option>
                                         <option>Sasxs</option>
                                     </select>
                                 </div>                                            
                                 <div class="form-group">
                                     <label>Tgl Retur</label>
-                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
+                                    <input type="date" class="form-control" name="dt_retur2" value="{{ date("Y-m-d") }}">
                                 </div>  
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6"> 
                                 <div class="form-group">
-                                    <label>Jenis Barang</label>
-                                    <select class="form-control select2" name="jenis_brg" id="jenis_brg">
-                                        <option disabled selected>--Select Jenis Barang--</option>
-                                        <option>Sasxs</option>
-                                    </select>
-                                </div> 
+                                    <label>Customer</label>
+                                    <input type="text" class="form-control" name="customer">
+                                </div>  
                                 <div class="form-group">
                                     <label>Jenis Barang</label>
                                     <select class="form-control select2" name="jenis_brg" id="jenis_brg">
@@ -126,21 +123,21 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label>Nominal Beli Satuan</label>
-                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="200" readonly>
+                                        <input type="text" class="form-control" name="nominal_beli1" id="nominal_beli1" value="200" readonly>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Kurs Beli Satuan</label>
-                                        <select class="form-control select2" name="kurs1" id="kurs1">
+                                        <select class="form-control select2" name="kurs2" id="kurs2">
                                             <option disabled selected>--Select No Tag--</option>
                                             <option>Sasxs</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Nominal Beli Satuan</label>
-                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="200" readonly>
+                                        <input type="text" class="form-control" name="nominal_beli2" id="nominal_beli2" value="200" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -223,7 +220,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Alasan Retur</label>
-                                    <select class="form-control select2" name="notag" id="notag">
+                                    <select class="form-control select2" name="alasan_retur" id="alasan_retur">
                                         <option disabled selected>--Select Alasan Retur--</option>
                                         <option>Xass</option>
                                     </select>
@@ -236,24 +233,24 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Jenis Pembayaran</label>
-                                    <select class="form-control select2" name="notag" id="notag">
+                                    <select class="form-control select2" name="jenis_byr" id="jenis_byr">
                                         <option disabled selected>--Select Jenis Pembayaran--</option>
                                         <option>Xass</option>
                                     </select>
                                 </div>  
                                 <div class="form-group">
                                     <label>Info Rekening</label>
-                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="wqe" readonly>
+                                    <input type="text" class="form-control" name="info_rek" id="info_rek" value="wqe" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Tgl Bayar</label>
-                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
+                                    <input type="date" class="form-control" name="dt_bayar" value="{{ date("Y-m-d") }}">
                                 </div>  
                             </div>
                         </div>
                     </div>
                     <div class="card-footer text-right">
-                        <a class="btn btn-warning mr-1" href="/tsoblist">List</a>
+                        <a class="btn btn-warning mr-1" href="/treturlist">List</a>
                         <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('treturpost') }}">Save</button>
                         {{-- @if($tpos_save == 'Y')
                             <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('transpospost') }}">Submit</button>

@@ -174,7 +174,10 @@
                                                 $src = 'data: '.mime_content_type($image).';base64,'.$imageData;
                                                 @endphp --}}
                                                 {{-- <img class="" src="data:image/png;base64,{{ chunk_split(base64_encode($mitems->pict)) }}" height="300" alt="photo"> --}}
-                                                {{-- <div class="image-area mt-4"><img id="imageResult0" src="data:image/png;base64,{{ chunk_split(base64_encode($mitems->pict)) }}" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div> --}}
+                                                {{-- <img src="{{ asset('storage/images/'.$mitem->pict) }}" /> --}}
+                                                {{-- <img src="{{ url("../images/".$mitem->pict) }}" alt="photo" height="300"> --}}
+                                                <div class="image-area mt-4"><img id="imageResult0" src="{{ asset('storage/images/'.$mitem->pict) }}" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+                                                <input type="text" class="form-control" id="hdnupload0" name="hdnupload0" readonly value="{{ $mitem->pict }}" hidden>
                                                 <hr>
                                             </div>
                                         </div>

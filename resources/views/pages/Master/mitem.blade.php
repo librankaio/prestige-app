@@ -154,8 +154,8 @@
                                                 <div class="input-group mb-3 px-2 py-1 bg-white shadow-sm" style="border:1px solid #ced4da; border-radius:5px;">
                                                     <input id="upload0" name="upload0" type="file" onchange="readURL0(this);" class="form-control border-0 upload">
                                                     {{-- <label id="upload-label0" for="upload0" class="font-weight-light text-muted upload-label">Choose
-                                                        file</label>
-                                                    <div class="input-group-append">
+                                                        file</label> --}}
+                                                    {{-- <div class="input-group-append">
                                                         <label for="upload0" class="btn btn-light m-0 px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted"> Choose file</small></label>
                                                     </div> --}}
                                                 </div>
@@ -167,7 +167,7 @@
                                                 $src = 'data: '.mime_content_type($image).';base64,'.$imageData;
                                                 @endphp --}}
                                                 {{-- <img class="" src="data:image/png;base64,{{ chunk_split(base64_encode($mitems->pict)) }}" height="300" alt="photo"> --}}
-                                                {{-- <div class="image-area mt-4"><img id="imageResult0" src="data:image/png;base64,{{ chunk_split(base64_encode($mitems->pict)) }}" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div> --}}
+                                                <div class="image-area mt-4"><img id="imageResult0" src="" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
                                                 <hr>
                                             </div>
                                         </div>

@@ -51,6 +51,7 @@ class ControllerMasterDataItem extends Controller
     }
 
     public function getedit(Mitem $mitem){
+        // dd($mitem);
         return view('pages.Master.mitemedit',[ 'mitem' => $mitem]);
     }
 
@@ -80,14 +81,17 @@ class ControllerMasterDataItem extends Controller
             'stock' => Request('stock'),
             'status' => Request('status'),
         ]);
-        // if(request()->file('upload0')!=null){
-        //     if(Storage::exists('images/'.request('upload0'))){
-        //         Storage::delete('images/'.request()->$hdnupload);
-        //         // dd($hdnupload);
-        //     }
-        //     request()->file('upload0')->store('images');
-        //     DB::table('twoh_pic')->where('name_mcar','=',request()->platnum)->where('pic','=',request()->$hdnupload)->update(['pic'=>request()->file('upload0')->hashname(), 'note' => request()->$desc]);
-        // }
+        if(request()->file('upload0')!=null){
+            if(Storage::exists('images/'.request('upload0'))){
+                Storage::delete('images/'.request('hdnupload0'));
+                // dd($hdnupload);
+            }
+            request()->file('upload0')->store('images');
+            Mitem::where('id', '=', $mitem->id)->update([
+                'pict' => request()->file('upload0')->hashname(),
+            ]);
+            request()->file("upload0")->store('images');
+        }
 
         return redirect()->route('mitem');
     }
