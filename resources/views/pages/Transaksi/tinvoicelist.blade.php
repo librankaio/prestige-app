@@ -2,10 +2,10 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h1>Trans Retur List</h1>
+        <h1>Trans Invoice List</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="#">Transaction</a></div>
-            <div class="breadcrumb-item"><a class="text-muted">Trans Retur List</a></div>
+            <div class="breadcrumb-item"><a class="text-muted">Trans Invoice List</a></div>
         </div>
     </div>
     @php
@@ -61,30 +61,28 @@
                                 <thead>
                                     <tr>
                                         <th scope="col" class="border border-5" style="text-align: center;">No</th>
-                                        <th scope="col" class="border border-5" style="text-align: center;">No Trans</th>
+                                        <th scope="col" class="border border-5" style="text-align: center;">No Invoice</th>
                                         <th scope="col" class="border border-5" style="text-align: center;">Tanggal</th>
                                         <th scope="col" class="border border-5" style="text-align: center;">Customer</th>
-                                        <th scope="col" class="border border-5" style="text-align: center;">No Invoice</th>
                                         <th scope="col" class="border border-5" style="text-align: center;">Nama Barang</th>
                                         <th scope="col" class="border border-5" style="text-align: center;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php $counter = 0 @endphp
-                                    @foreach($treturs as $data => $item)
+                                    @foreach($tinvoices as $data => $item)
                                     @php $counter++ @endphp
                                     <tr>
                                         <th scope="row" class="border border-5" style="text-align: center;">{{ $counter }}</th>
-                                        <td class="border border-5" style="text-align: center;">{{ $item->no_retur }}</td>
-                                        <td class="border border-5" style="text-align: center;">{{ date("Y-m-d", strtotime($item->tgl_retur1)) }}</td>
-                                        <td class="border border-5" style="text-align: center;">{{ $item->customer }}</td>
                                         <td class="border border-5" style="text-align: center;">{{ $item->no_invoice }}</td>
+                                        <td class="border border-5" style="text-align: center;">{{ date("Y-m-d", strtotime($item->tgl_invoice)) }}</td>
+                                        <td class="border border-5" style="text-align: center;">{{ $item->customer }}</td>
                                         <td class="border border-5" style="text-align: center;">{{ $item->nama_brg }}</td>
                                         <td style="text-align: center;" class="d-flex justify-content-center">
-                                            <a href="/tretur/{{ $item->id }}/edit"
+                                            <a href="/tinvoice/{{ $item->id }}/edit"
                                                 class="btn btn-icon icon-left btn-primary"><i class="far fa-edit">
                                                     Edit</i></a>
-                                            <form action="/tretur/delete/{{ $item->id }}" id="del-{{ $item->id }}"
+                                            <form action="/tinvoice/delete/{{ $item->id }}" id="del-{{ $item->id }}"
                                                 method="POST" class="px-2">
                                                 @csrf
                                                 <button class="btn btn-icon icon-left btn-danger"

@@ -19,6 +19,7 @@ class Tinvoice extends Model
         'jenis_brg',
         'tgl_consign',
         'consignee',
+        'phone',
         'nama_brg',
         'desc_brg',
         'qty',

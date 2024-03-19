@@ -2,10 +2,10 @@
 @section('content')
 <section class="section">
     <div class="section-header">
-        <h1>Invoice</h1>
+        <h1>Invoice Edit</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="#">Transaction</a></div>
-            <div class="breadcrumb-item"><a class="text-muted">Invoice</a></div>
+            <div class="breadcrumb-item"><a class="text-muted">Invoice Edit</a></div>
         </div>
     </div>
     @php
@@ -17,7 +17,7 @@
                 @include('layouts.flash-message')
             </div>
         </div>
-        <form action="" method="POST" id="thisform">
+        <form action="" method="POST" id="thisform" enctype="multipart/form-data">
             @csrf
         <div class="row">
             <div class="col-12 col-md-6 col-lg-6">
@@ -30,12 +30,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Invoice No</label>
-                                    <input type="text" class="form-control" name="no" id="no" value="" readonly>
+                                    <input type="text" class="form-control" name="no" id="no" value="{{ $tinvoice->no_invoice }}" readonly>
                                 </div>       
                                 <div class="form-group">
                                     <label>Jenis Transaksi</label>
                                     <select class="form-control select2" name="jenis_trans" id="jenis_trans">
-                                        <option disabled selected>--Select Jenis Trans--</option>
+                                        <option selected>{{ $tinvoice->jenis_trans }}</option>
+                                        <option>SWWE</option>
                                         {{-- @foreach($counters as $counter)
                                         <option>{{ $counter->name}}</option>
                                         @endforeach --}}
@@ -49,25 +50,26 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tanggal Invoice</label>
-                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
+                                    <input type="date" class="form-control" name="tgl_invoice" value="{{ date("Y-m-d", strtotime($tinvoice->tgl_invoice)) }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Admin</label>
-                                    <input type="text" class="form-control" name="admin" id="admin" value="" readonly>
+                                    <input type="text" class="form-control" name="admin" id="admin" value="{{ $tinvoice->admin }}" readonly>
                                 </div>       
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Customer / Buyer</label>
                                     <select class="form-control select2" name="customer" id="customer">
-                                        <option disabled selected>--Select Customer/Buyer--</option>
+                                        <option selected>{{ $tinvoice->customer }}</option>
+                                        <option>XZXX</option>
                                     </select>
                                 </div>  
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>No Hp #1</label>
-                                    <input type="text" class="form-control" name="nohp1" id="nohp1" value="" readonly>
+                                    <input type="text" class="form-control" name="nohp1" id="nohp1" value="{{ $tinvoice->phone }}" readonly>
                                 </div>  
                             </div>
                             {{-- <div class="col-md-6">
@@ -91,72 +93,76 @@
                                 <div class="form-group">
                                     <label>No Tag</label>
                                     <select class="form-control select2" name="notag" id="notag">
-                                        <option disabled selected>--Select No Tag--</option>
+                                        <option selected>{{ $tinvoice->no_tag }}</option>
+                                        <option>XEWE</option>
                                     </select>
                                 </div>                                            
                                 <div class="form-group">
                                     <label>Tgl Consign</label>
-                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
+                                    <input type="date" class="form-control" name="tgl_consign" value="{{ date("Y-m-d", strtotime($tinvoice->tgl_consign)) }}">
                                 </div>  
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Jenis Barang</label>
                                     <select class="form-control select2" name="jenis_brg" id="jenis_brg">
-                                        <option disabled selected>--Select Jenis Barang--</option>
+                                        <option disabled selected>{{ $tinvoice->jenis_brg }}</option>
+                                        <option>XEWE</option>
                                     </select>
                                 </div> 
                                 <div class="form-group">
                                     <label>Consignee</label>
-                                    <input type="text" class="form-control" name="consignee" id="consignee" value="" readonly>
+                                    <input type="text" class="form-control" name="consignee" id="consignee" value="{{ $tinvoice->consignee }}" readonly>
                                 </div>  
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>No.HP #1</label>
-                                    <input type="text" class="form-control" name="nohp2" id="nohp2" value="" readonly>
+                                    <input type="text" class="form-control" name="nohp" id="nohp" value="{{ $tinvoice->phone }}" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Nama Barang</label>
-                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" value="" readonly>
+                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" value="{{ $tinvoice->nama_brg }}" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Deskripsi Barang</label>
-                                    <textarea class="form-control" style="height:100px" name="desc_barang"></textarea>
+                                    <textarea class="form-control" style="height:100px" name="desc_barang">{{ $tinvoice->desc_brg }}</textarea>
                                 </div>  
                             </div>                  
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Quantity</label>
-                                    <input type="text" class="form-control" name="quantity" id="quantity" value="" readonly>
+                                    <input type="text" class="form-control" name="quantity" id="quantity" value="{{ $tinvoice->qty }}" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Merk Barang</label>
-                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="{{ $tinvoice->merk }}" readonly>
                                 </div>  
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Kurs Beli Satuan</label>
-                                        <select class="form-control select2" name="kurs1" id="kurs1">
-                                            <option disabled selected>--Select No Tag--</option>
+                                        <select class="form-control select2" name="kursbeli1" id="kursbeli1">
+                                            <option selected>{{ $tinvoice->kursbeli1 }}</option>
+                                            <option>XEWE</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Nominal Beli Satuan</label>
-                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                        <input type="text" class="form-control" name="nominal_beli1" id="nominal_beli1" value="{{ $tinvoice->nominal_beli1 }}" readonly>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Kurs Beli Satuan</label>
-                                        <select class="form-control select2" name="kurs1" id="kurs1">
-                                            <option disabled selected>--Select No Tag--</option>
+                                        <select class="form-control select2" name="kursbeli2" id="kursbeli2">
+                                            <option selected>{{ $tinvoice->kursbeli2 }}</option>
+                                            <option>XEWE</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Nominal Beli Satuan</label>
-                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                        <input type="text" class="form-control" name="nominal_beli2" id="nominal_beli2" value="{{ $tinvoice->nominal_beli2 }}" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -167,11 +173,11 @@
                                 </div>   --}}
                                 <div class="form-group">
                                     <label>Warna</label>
-                                    <input type="text" class="form-control" name="warna" id="warna" value="" readonly>
+                                    <input type="text" class="form-control" name="warna" id="warna" value="{{ $tinvoice->warna }}" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Size</label>
-                                    <input type="text" class="form-control" name="size" id="size" value="" readonly>
+                                    <input type="text" class="form-control" name="size" id="size" value="{{ $tinvoice->size }}" readonly>
                                 </div>  
                                 {{-- <div class="form-group">
                                     <label>Material</label>
@@ -181,19 +187,19 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Total</label>
-                                    <input type="text" class="form-control" name="total" id="total" value="0" readonly>
+                                    <input type="text" class="form-control" name="total" id="total" value="{{ $tinvoice->total }}" readonly>
                                 </div>  
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Profit Prestige</label>
-                                    <input type="text" class="form-control" name="profit_prestige" id="profit_prestige" value="0" readonly>
+                                    <input type="text" class="form-control" name="profit_prestige" id="profit_prestige" value="{{ $tinvoice->profit_prestige }}" readonly>
                                 </div>  
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Profit Consignee</label>
-                                    <input type="text" class="form-control" name="profit_consignee" id="profit_consignee" value="0" readonly>
+                                    <input type="text" class="form-control" name="profit_consignee" id="profit_consignee" value="{{ $tinvoice->profit_consignee }}" readonly>
                                 </div>  
                             </div>
                         </div>
@@ -221,7 +227,8 @@
                                                         <label for="upload0" class="btn btn-light m-0 px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted"> Choose file</small></label>
                                                     </div> --}}
                                                 </div>
-                                                <div class="image-area mt-4"><img id="imageResult0" src="" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+                                                <div class="image-area mt-4"><img id="imageResult0" src="{{ asset('storage/images/'.$tinvoice->pict) }}" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+                                                <input type="text" class="form-control" id="hdnupload0" name="hdnupload0" readonly value="{{ $tinvoice->pict }}" hidden>
                                                 <hr>
                                             </div>
                                         </div>
@@ -230,47 +237,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-12 col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="datatable">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="border border-5">No</th>
-                                        <th scope="col" class="border border-5">Kode</th>
-                                        <th scope="col" class="border border-5">Nama Item</th>
-                                        <th scope="col" class="border border-5">Warna</th>
-                                        <th scope="col" class="border border-5">Quantity</th>
-                                        <th scope="col" class="border border-5">Satuan</th>
-                                        <th scope="col" class="border border-5">Harga Jual</th>
-                                        <th scope="col" class="border border-5">Subtotal</th>
-                                        <th scope="col" class="border border-5">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>                            
-                            </table>
-                        </div>                                              
-                    </div>      
-                    <div class="col-12 col-md-6 col-lg-6 align-self-end">
-                        <div class="row">
-                            <div class="col-md-8">
-                                
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Total</label>
-                                    <input type="text" class="form-control" name="price_total" form="thisform" id="price_total" readonly>
-                                </div>
-                            </div>
-                        </div>
-                    </div>              
                     <div class="card-footer text-right">
-                        <a class="btn btn-warning mr-1" href="/tsoblist">List</a>
-                        <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('tinvoicepost') }}">Save</button>
+                        <a class="btn btn-warning mr-1" href="/tinvoicelist">List</a>
+                        <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="/tinvoice/{{ $tinvoice->id }}">Update</button>
                         {{-- @if($tpos_save == 'Y')
                             <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('transpospost') }}">Submit</button>
                         @elseif($tpos_save == 'N' || $tpos_save == null)

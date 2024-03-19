@@ -72,6 +72,9 @@ Route::post('/mitem/delete/{mitem}', [ControllerMasterDataItem::class, 'delete']
 Route::get('tinvoice', [ControllerTransInvoice::class, 'index'])->name('tinvoice');
 Route::post('tinvoicepost', [ControllerTransInvoice::class, 'post'])->name('tinvoicepost');
 Route::get('/tinvoice/{tinvoice}/edit', [ControllerTransInvoice::class, 'getedit'])->name('tinvoiceedit');
+Route::get('tinvoicelist', [ControllerTransInvoice::class, 'list'])->name('tinvoicelist');
+Route::post('/tinvoice/{tinvoice}', [ControllerTransInvoice::class, 'update'])->name('tinvoiceupdt');
+Route::post('/tinvoice/delete/{tinvoice}', [ControllerTransInvoice::class, 'delete'])->name('tinvoicedelete');
 
 Route::get('tretur', [ControllerTransRetur::class, 'index'])->name('tretur');
 Route::post('treturpost', [ControllerTransRetur::class, 'post'])->name('treturpost');
