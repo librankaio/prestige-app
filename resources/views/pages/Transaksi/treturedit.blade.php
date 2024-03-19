@@ -5,7 +5,7 @@
         <h1>Retur</h1>
         <div class="section-header-breadcrumb">
             <div class="breadcrumb-item active"><a href="#">Transaction</a></div>
-            <div class="breadcrumb-item"><a class="text-muted">Retur</a></div>
+            <div class="breadcrumb-item"><a class="text-muted">Retur Edit</a></div>
         </div>
     </div>
     @php
@@ -30,12 +30,12 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Retur No</label>
-                                    <input type="text" class="form-control" name="no" id="no" value="" readonly>
+                                    <input type="text" class="form-control" name="no" id="no" value="{{ $tretur->no_retur }}" readonly>
                                 </div>       
                                 <div class="form-group">
                                     <label>Jenis Retur</label>
                                     <select class="form-control select2" name="jenis_retur" id="jenis_trans">
-                                        <option disabled selected>--Select Jenis Retur--</option>
+                                        <option selected>{{ $tretur->jenis_retur }}</option>
                                         {{-- @foreach($counters as $counter)
                                         <option>{{ $counter->name}}</option>
                                         @endforeach --}}
@@ -49,11 +49,11 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Tanggal Retur</label>
-                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
+                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d", strtotime($tretur->tgl_retur1)) }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Sales</label>
-                                    <input type="text" class="form-control" name="admin" id="admin" value="" readonly>
+                                    <input type="text" class="form-control" name="sales" id="sales" value="{{ $tretur->sales }}" readonly>
                                 </div>       
                             </div>
                         </div>
@@ -71,57 +71,55 @@
                                 <div class="form-group">
                                     <label>No Invoice</label>
                                     <select class="form-control select2" name="notag" id="notag">
-                                        <option disabled selected>--Select No Invoice--</option>
+                                        <option selected>{{ $tretur->no_invoice }}</option>
                                     </select>
                                 </div>                                            
                                 <div class="form-group">
                                     <label>Tgl Retur</label>
-                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
+                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d", strtotime($tretur->tgl_retur2)) }}">
                                 </div>  
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Jenis Barang</label>
-                                    <select class="form-control select2" name="jenis_brg" id="jenis_brg">
-                                        <option disabled selected>--Select Jenis Barang--</option>
-                                    </select>
+                                    <label>Customer</label>
+                                    <input type="text" class="form-control" name="customer" value="{{ $tretur->customer }}">
                                 </div> 
                                 <div class="form-group">
                                     <label>Jenis Barang</label>
                                     <select class="form-control select2" name="jenis_brg" id="jenis_brg">
-                                        <option disabled selected>--Select Jenis Barang--</option>
+                                        <option selected>{{ $tretur->jenis_brg }}</option>
                                     </select>
                                 </div> 
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Nama Barang</label>
-                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" value="" readonly>
+                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" value="{{ $tretur->nama_brg }}" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Deskripsi Barang</label>
-                                    <textarea class="form-control" style="height:100px" name="desc_barang"></textarea>
+                                    <textarea class="form-control" style="height:100px" name="desc_barang">{{ $tretur->desc_brg }}</textarea>
                                 </div>  
                             </div>                  
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Quantity</label>
-                                    <input type="text" class="form-control" name="quantity" id="quantity" value="" readonly>
+                                    <input type="text" class="form-control" name="quantity" id="quantity" value="{{ $tretur->qty }}" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Merk Barang</label>
-                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="{{ $tretur->merk }}" readonly>
                                 </div>  
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Kurs Beli Satuan</label>
                                         <select class="form-control select2" name="kurs1" id="kurs1">
-                                            <option disabled selected>--Select No Tag--</option>
+                                            <option selected>{{ $tretur->kursbeli1 }}</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Nominal Beli Satuan</label>
-                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="{{ $tretur->nominal_beli1 }}" readonly>
                                     </div>
                                 </div>
                                 <br>
@@ -129,12 +127,12 @@
                                     <div class="col-md-6">
                                         <label>Kurs Beli Satuan</label>
                                         <select class="form-control select2" name="kurs1" id="kurs1">
-                                            <option disabled selected>--Select No Tag--</option>
+                                            <option selected>{{ $tretur->kursbeli1 }}</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Nominal Beli Satuan</label>
-                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                        <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="{{ $tretur->nominal_beli2 }}" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -142,32 +140,32 @@
                                 <div class="form-group">
                                     <label>Satuan</label>
                                     <select class="form-control select2" name="satuan" id="satuan">
-                                        <option disabled selected>--Select Satuan--</option>
+                                        <option selected>{{ $tretur->satuan }}</option>
                                     </select>
                                 </div> 
                                 <div class="form-group">
                                     <label>Warna</label>
-                                    <input type="text" class="form-control" name="warna" id="warna" value="" readonly>
+                                    <input type="text" class="form-control" name="warna" id="warna" value="{{ $tretur->warna }}" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Size</label>
-                                    <input type="text" class="form-control" name="size" id="size" value="" readonly>
+                                    <input type="text" class="form-control" name="size" id="size" value="{{ $tretur->size }}" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Material</label>
-                                    <input type="text" class="form-control" name="material" id="material" value="" readonly>
+                                    <input type="text" class="form-control" name="material" id="material" value="{{ $tretur->material }}" readonly>
                                 </div>  
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Total</label>
-                                    <input type="text" class="form-control" name="total" id="total" value="0" readonly>
+                                    <input type="text" class="form-control" name="total" id="total" value="{{ number_format($tretur->total, 2, '.', ',') }}" readonly>
                                 </div>  
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Profit</label>
-                                    <input type="text" class="form-control" name="profit" id="profit" value="0" readonly>
+                                    <input type="text" class="form-control" name="profit" id="profit" value="{{ number_format($tretur->profit, 2, '.', ',') }}" readonly>
                                 </div>  
                             </div>
                         </div>
@@ -195,7 +193,8 @@
                                                         <label for="upload0" class="btn btn-light m-0 px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted"> Choose file</small></label>
                                                     </div> --}}
                                                 </div>
-                                                <div class="image-area mt-4"><img id="imageResult0" src="" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+                                                <div class="image-area mt-4"><img id="imageResult0" src="{{ asset('storage/images/'.$tretur->pict) }}" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+                                                <input type="text" class="form-control" id="hdnupload0" name="hdnupload0" readonly value="{{ $tretur->pict }}" hidden>
                                                 <hr>
                                             </div>
                                         </div>
@@ -216,36 +215,36 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Alasan Retur</label>
-                                    <select class="form-control select2" name="notag" id="notag">
-                                        <option disabled selected>--Select Alasan Retur--</option>
+                                    <select class="form-control select2" name="alasan_retur" id="alasan_retur">
+                                        <option disabled selected>{{ $tretur->alasan_retur }}</option>
                                     </select>
                                 </div>                                            
                                 <div class="form-group">
                                     <label>Catatan Retur</label>
-                                    <textarea class="form-control" style="height:100px" name="desc_barang"></textarea>
+                                    <textarea class="form-control" style="height:100px" name="note_retur">{{ $tretur->note_retur }}</textarea>
                                 </div>  
                             </div>                 
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Jenis Pembayaran</label>
-                                    <select class="form-control select2" name="notag" id="notag">
-                                        <option disabled selected>--Select Jenis Pembayaran--</option>
+                                    <select class="form-control select2" name="jenis_byr" id="jenis_byr">
+                                        <option selected>{{ $tretur->jenis_bayar }}</option>
                                     </select>
                                 </div>  
                                 <div class="form-group">
                                     <label>Info Rekening</label>
-                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="" readonly>
+                                    <input type="text" class="form-control" name="info_rek" id="info_rek" value="{{ $tretur->info_rek }}" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Tgl Bayar</label>
-                                    <input type="date" class="form-control" name="dt" value="{{ date("Y-m-d") }}">
+                                    <input type="date" class="form-control" name="dt_bayar" value="{{ date("Y-m-d", strtotime($tretur->tgl_bayar)) }}">
                                 </div>  
                             </div>
                         </div>
                     </div>
                     <div class="card-footer text-right">
                         <a class="btn btn-warning mr-1" href="/tsoblist">List</a>
-                        <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('treturpost') }}">Save</button>
+                        <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="/tretur/{{ $tretur->id }}">Update</button>
                         {{-- @if($tpos_save == 'Y')
                             <button class="btn btn-primary mr-1" id="confirm" type="submit" formaction="{{ route('transpospost') }}">Submit</button>
                         @elseif($tpos_save == 'N' || $tpos_save == null)

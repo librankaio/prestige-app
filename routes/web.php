@@ -77,6 +77,8 @@ Route::get('tretur', [ControllerTransRetur::class, 'index'])->name('tretur');
 Route::post('treturpost', [ControllerTransRetur::class, 'post'])->name('treturpost');
 Route::get('treturlist', [ControllerTransRetur::class, 'list'])->name('treturlist');
 Route::get('/tretur/{tretur}/edit', [ControllerTransRetur::class, 'getedit'])->name('treturedit');
+Route::post('/treturtretur/{treturtretur}', [ControllerTransRetur::class, 'update'])->name('treturupdt');
+Route::post('/tretur/delete/{tretur}', [ControllerTransRetur::class, 'delete'])->name('treturdelete');
 
 // Route::get('/', function () {
 //     return view('welcome');

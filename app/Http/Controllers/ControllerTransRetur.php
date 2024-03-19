@@ -15,6 +15,8 @@ class ControllerTransRetur extends Controller
     public function post(Request $request){
         // dd($request->all());
         
+        $request->file("upload0")->store('images');
+
         Tretur::create([
             'no_retur' => $request->no,
             'tgl_retur1'=> $request->dt_retur,
@@ -44,16 +46,14 @@ class ControllerTransRetur extends Controller
             'total' => $request->total,
             'profit' => $request->profit,
             // --------------
-            'pict' => $request->upload0,
+            'pict' =>  $request->file("upload0")->hashname(),
             // ---------------
             'alasan_retur' => $request->alasan_retur,
-            'note_retur' => $request->phone,
+            'note_retur' => $request->note_retur,
             'jenis_bayar' => $request->jenis_byr,
             'info_rek' => $request->info_rek,
             'tgl_bayar' => $request->dt_bayar
         ]);
-
-        $request->file("upload0")->store('images');
         
         return redirect()->back()->with('success', 'Data berhasil ditambahkan');
     }
@@ -67,5 +67,64 @@ class ControllerTransRetur extends Controller
         return view('pages.Transaksi.treturlist',[
             'treturs' => $treturs,
         ]);
+    }
+
+    public function update(Tretur $tretur){
+        // dd(request()->all());
+        Tretur::create([
+            'no_retur' => request('no'),
+            'tgl_retur1'=> request('dt_retur'),
+            'jenis_retur' => request('jenis_retur'),
+            'sales' => request('sales'),
+            // -------------
+            'no_invoice' => request('no_invoice'),
+            'customer' => request('customer') ,
+            'tgl_retur2'=> request('dt_retur2'),
+            'jenis_brg' => request('jenis_brg'),
+            'nama_brg' => request('nama_barang'),
+            'desc_brg' => request('desc_brg'),
+            'qty' => request('quantity'),
+            'satuan' => request('satuan'),
+            'merk' => request('merk_barang'),
+            'warna' => request('warna'),
+            'kurs_modal' => request('kurs1'),
+            'nominal_modal' => request('hrgmodal'),
+            'kurs_jual' => request('curr_type2'),
+            'nominal_jual' => request('hrgjual'),
+            'size' => request('size'),
+            'material' => request('material'),
+            'kursbeli1' => request('kurs1'),
+            'kursbeli2' => request('kurs2'),
+            'nominal_beli1' => request('nominal_beli1'),
+            'nominal_beli2' => request('nominal_beli2'),
+            'total' => request('total'),
+            'profit' => request('profit'),
+            // --------------
+            'pict' =>  request('')->file("upload0")->hashname(),
+            // ---------------
+            'alasan_retur' => request('alasan_retur'),
+            'note_retur' => request('note_retur'),
+            'jenis_bayar' => request('jenis_byr'),
+            'info_rek' => request('info_rek'),
+            'tgl_bayar' => request('dt_bayar')
+        ]);
+        if(request()->file('upload0')!=null){
+            if(Storage::exists('images/'.request('upload0'))){
+                Storage::delete('images/'.request('hdnupload0'));
+                // dd($hdnupload);
+            }
+            request()->file('upload0')->store('images');
+            Tretur::where('id', '=', $tretur->id)->update([
+                'pict' => request()->file('upload0')->hashname(),
+            ]);
+            request()->file("upload0")->store('images');
+        }
+
+        return redirect()->route('tretur');
+    }
+
+    public function delete(Tretur $tretur){
+        Tretur::find($tretur->id)->delete();
+        return redirect()->route('tretur');
     }
 }

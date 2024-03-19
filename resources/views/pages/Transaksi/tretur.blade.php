@@ -227,7 +227,7 @@
                                 </div>                                            
                                 <div class="form-group">
                                     <label>Catatan Retur</label>
-                                    <textarea class="form-control" style="height:100px" name="desc_barang"></textarea>
+                                    <textarea class="form-control" style="height:100px" name="note_retur"></textarea>
                                 </div>  
                             </div>                 
                             <div class="col-md-6">
