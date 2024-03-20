@@ -45,7 +45,7 @@
                                     <div class="form-group">
                                         <label>Jenis Kelamin</label>
                                         <select class="form-control select2" name="gender" id="gender">
-                                            <option disabled selected>{{ $mconsign->jenis_kelamin }}</option>
+                                            <option selected>{{ $mconsign->jenis_kelamin }}</option>
                                             <option>Pria-punya selera</option>
                                             <option>Wanita</option>
                                         </select>
@@ -77,7 +77,7 @@
                         </div>
                         <div class="card-footer text-right">    
                             <button class="btn btn-primary mr-1" type="submit"
-                                formaction="{{ route('mconsignpost') }}" id="confirm">Update</button>
+                            formaction="/mconsign/{{ $mconsign->id }}" id="confirm">Update</button>
                             <button class="btn btn-secondary" type="reset">Cancel</button>
                         </div>
                     </form>

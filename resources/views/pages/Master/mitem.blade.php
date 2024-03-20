@@ -193,6 +193,95 @@
                                 </div>                         
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_boxori" value="Y" name="">
+                                    <label class="form-check-label" for="ch_boxori">Box Ori</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_oridustbag" value="Y" name="">
+                                    <label class="form-check-label" for="ch_oridustbag">Dustbag Ori</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_authcard" value="Y" name="">
+                                    <label class="form-check-label" for="ch_authcard">Auth Card</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_mirror" value="Y" name="">
+                                    <label class="form-check-label" for="ch_mirror">Mirror</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_booklet" value="Y" name="">
+                                    <label class="form-check-label" for="ch_booklet">Booklet</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_receipt" value="Y" name="">
+                                    <label class="form-check-label" for="ch_receipt">Receipt</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_strap" value="Y" name="">
+                                    <label class="form-check-label" for="ch_strap">Strap</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_padlock" value="Y" name="">
+                                    <label class="form-check-label" for="ch_padlock">Padlock</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_key" value="Y" name="">
+                                    <label class="form-check-label" for="ch_key">Strap</label>
+                                </div>
+                            </div>    
+                            <div class="col-md-4">                                
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_dustganti" value="Y" name="">
+                                    <label class="form-check-label" for="ch_dustganti">Dustbag Ganti</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_hollow" value="Y" name="">
+                                    <label class="form-check-label" for="ch_hollow">Hollow</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_paperbag" value="Y" name="">
+                                    <label class="form-check-label" for="ch_paperbag">Paperbag</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_tag" value="Y" name="">
+                                    <label class="form-check-label" for="ch_tag">Tag</label>
+                                </div>
+                                <br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_raincoat" value="Y" name="">
+                                    <label class="form-check-label" for="ch_raincoat">Raincoat</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_camelia" value="Y" name="">
+                                    <label class="form-check-label" for="ch_camelia">Camelia</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_ribbon" value="Y" name="">
+                                    <label class="form-check-label" for="ch_ribbon">Ribbon/Pita</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_sampleather" value="Y" name="">
+                                    <label class="form-check-label" for="ch_sampleather">Sample Leather</label>
+                                </div>
+                            </div>    
+                            <div class="col-md-4">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_copyreceipt" value="Y" name="">
+                                    <label class="form-check-label" for="ch_copyreceipt">Copy Receipt</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="ch_lap" value="Y" name="">
+                                    <label class="form-check-label" for="ch_lap">Lap</label>
+                                </div>
+                                <div class="form-group">
+                                    <label>Kelengkapan Lain</label>
+                                    <textarea class="form-control" style="height:100px" name="kel_lain"></textarea>
+                                </div>
+                            </div>                    
+                        </div>
                     </div>
                 </div>
             </div>

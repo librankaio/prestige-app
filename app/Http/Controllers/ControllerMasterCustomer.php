@@ -40,8 +40,8 @@ class ControllerMasterCustomer extends Controller
 
     public function update(Mcust $mcust){
         Mcust::where('id', '=', $mcust->id)->update([
-            'code' => request('kode'),
-            'name' => request('nama'),
+            'code' => request('code'),
+            'name' => request('name'),
             'jenis_kelamin' => request('gender'),
             'phone1' => request('phone1'),
             'phone2' => request('phone2'),
@@ -57,6 +57,6 @@ class ControllerMasterCustomer extends Controller
 
     public function delete(Mcust $mcust){
         Mcust::find($mcust->id)->delete();
-        return redirect()->route('mcust');
+        return redirect()->route('mcust')->with('success', 'Data berhasil dihapus');
     }
 }

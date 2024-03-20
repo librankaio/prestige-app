@@ -210,6 +210,39 @@
                     </div>
                 </div>
             </div>
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="card" style="border: 1px solid lightblue">
+                    <div class="card-header">
+                        <h4>Gambar Retur</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <section class="uploadimg">
+                                        <div class="row py-2">
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" id="hdnupload1" name="hdnupload1" readonly hidden>
+                                                <div class="input-group mb-3 px-2 py-1 bg-white shadow-sm" style="border:1px solid #ced4da; border-radius:5px;">
+                                                    <input id="upload1" name="upload1" type="file" onchange="readURL0(this);" class="form-control border-0 upload">
+                                                    {{-- <label id="upload-label0" for="upload0" class="font-weight-light text-muted upload-label">Choose
+                                                        file</label>
+                                                    <div class="input-group-append">
+                                                        <label for="upload0" class="btn btn-light m-0 px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted"> Choose file</small></label>
+                                                    </div> --}}
+                                                </div>
+                                                <div class="image-area mt-4"><img id="imageResult1" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+                                                <input type="text" class="form-control" id="hdnupload1" name="hdnupload1" readonly hidden>
+                                                <hr>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-12 col-md-6 col-lg-6">
                 <div class="card">
                     <div class="card-header">

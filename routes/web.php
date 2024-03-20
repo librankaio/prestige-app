@@ -30,7 +30,7 @@ Route::get('home', [ControllerHome::class, 'index'])->name('home');
 Route::get('msales', [ControllerMasterSales::class, 'index'])->name('msales');
 Route::post('msalespost', [ControllerMasterSales::class, 'post'])->name('msalespost');
 Route::get('/msales/{msale}/edit', [ControllerMasterSales::class, 'getedit'])->name('msalesgetedit');
-Route::get('/msales/{msale}', [ControllerMasterSales::class, 'update'])->name('msalesupdate');
+Route::post('/msales/{msale}', [ControllerMasterSales::class, 'update'])->name('msalesupdate');
 Route::post('/msales/delete/{msale}', [ControllerMasterSales::class, 'delete'])->name('msalesdelete');
 
 Route::get('mcust', [ControllerMasterCustomer::class, 'index'])->name('mcust');

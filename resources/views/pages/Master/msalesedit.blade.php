@@ -51,7 +51,7 @@
                                     <div class="form-group">
                                         <label>Jenis Kelamin</label>
                                         <select class="form-control select2" name="gender" id="gender">
-                                            <option disabled selected>{{ $msale->jenis_kelamin }}</option>
+                                            <option selected>{{ $msale->jenis_kelamin }}</option>
                                             <option>Pria-punya selera</option>
                                             <option>Wanita</option>
                                         </select>
