@@ -44,6 +44,7 @@ Route::post('mconsignpost', [ControllerMasterConsignee::class, 'post'])->name('m
 Route::get('/mconsign/{mconsign}/edit', [ControllerMasterConsignee::class, 'getedit'])->name('mconsigngetedit');
 Route::post('/mconsign/{mconsign}', [ControllerMasterConsignee::class, 'update'])->name('mconsignupdt');
 Route::post('/mconsign/delete/{mconsign}', [ControllerMasterConsignee::class, 'delete'])->name('mconsigndelete');
+Route::post('/getmconsign', [ControllerMasterConsignee::class, 'getconsign'])->name('getmconsign');
 
 Route::get('mmerk', [ControllerMasterMerk::class, 'index'])->name('mmerk');
 Route::post('mmerkpost', [ControllerMasterMerk::class, 'post'])->name('mmerkpost');

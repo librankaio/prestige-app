@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mconsign;
 use App\Models\Mitem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,9 +12,11 @@ class ControllerMasterDataItem extends Controller
 {
     public function index(){
         $datas = Mitem::all();
+        $consignees = Mconsign::select('id','code','name')->get();
         // dd($datas->no_consign);
         return view('pages.Master.mitem',[
             'datas' => $datas,
+            'consignees' => $consignees,
         ]);
     }
 

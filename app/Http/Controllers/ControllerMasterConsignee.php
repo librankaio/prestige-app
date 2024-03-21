@@ -46,6 +46,16 @@ class ControllerMasterConsignee extends Controller
         return redirect()->route('mconsign')->with('success', 'Data berhasil diupdate');
     }
 
+    public function  getconsign(Request $request){
+        $kode = $request->kode;
+        if($kode == ''){
+            $consignees = Mconsign::select('id','code','name','jenis_kelamin','phone','rekening','alamat')->orderBy('code', 'asc')->limit(20)->get();
+        }else{
+            $consignees = Mconsign::select('id','code','name','jenis_kelamin','phone','rekening','alamat')->where('code','=',$kode)->limit(20)->get();
+        }
+        return json_encode($consignees);
+    }
+
     public function delete(Mconsign $mconsign){
         Mconsign::find($mconsign->id)->delete();
         return redirect()->route('mconsign')->with('success', 'Data berhasil dihapus');

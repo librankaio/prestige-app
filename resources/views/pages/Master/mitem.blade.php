@@ -44,12 +44,14 @@
                                     <label>Consignee / Owner</label>
                                     <select class="form-control select2" name="consignee" id="consignee">
                                         <option disabled selected>--Select Consignee--</option>
-                                        <option>SAZZZ</option>
+                                        @foreach($consignees as $consignee)
+                                        <option value="{{ $consignee->code }}">{{ $consignee->code."-".$consignee->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>         
                                 <div class="form-group">
                                     <label>Hp</label>
-                                    <input type="text" class="form-control" name="phone" value="">
+                                    <input type="text" class="form-control" name="phone" id="phone">
                                 </div>            
                                 <div class="form-group">
                                     <label>Tanggal Consigne</label>
@@ -399,9 +401,28 @@
     }
 
     $(document).ready(function() {
-        rowCount = 0;
-        //CSRF TOKEN
-        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+        $("#consignee").on('select2:select', function(e) {
+                var code = $(this).val();
+                show_loading()
+                $.ajax({
+                    url: '{{ route('getmconsign') }}', 
+                    method: 'post', 
+                    data: {'code': code}, 
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
+                    dataType: 'json', 
+                    success: function(response) {
+                        // console.log(code);
+                        console.log(response);
+                        for (i=0; i < response.length; i++) {
+                            if(response[i].code == code){
+                                $("#phone").val(response[i].phone)
+                            }
+                        }
+                        hide_loading()
+                    }
+                });
+            });
         $(document).ready(function() {
             // $('.select2').select2({
             // });

@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Art Fashion Inventory Apps</title>
+    <title>Prestige Apps</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- Bootstrap icon --}}
