@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mitem;
 use App\Models\Tinvoice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -9,7 +10,10 @@ use Illuminate\Support\Facades\Storage;
 class ControllerTransInvoice extends Controller
 {
     public function index(){
-        return view('pages.Transaksi.tinvoice');
+        $mitems = Mitem::select('id','code_tag')->get();
+        return view('pages.Transaksi.tinvoice',[
+            'mitems' => $mitems,
+        ]);
     }
 
     public function post(Request $request){

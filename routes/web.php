@@ -69,6 +69,7 @@ Route::post('mitempost', [ControllerMasterDataItem::class, 'post'])->name('mitem
 Route::get('/mitem/{mitem}/edit', [ControllerMasterDataItem::class, 'getedit'])->name('mitemedit');
 Route::post('/mitem/{mitem}', [ControllerMasterDataItem::class, 'update'])->name('mitemupdt');
 Route::post('/mitem/delete/{mitem}', [ControllerMasterDataItem::class, 'delete'])->name('mitemdelete');
+Route::post('/getmitemtag', [ControllerMasterDataItem::class, 'getmitemtag'])->name('getmitemtag');
 
 Route::get('tinvoice', [ControllerTransInvoice::class, 'index'])->name('tinvoice');
 Route::post('tinvoicepost', [ControllerTransInvoice::class, 'post'])->name('tinvoicepost');

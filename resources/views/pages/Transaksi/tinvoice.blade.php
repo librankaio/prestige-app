@@ -94,12 +94,14 @@
                                     <label>No Tag</label>
                                     <select class="form-control select2" name="notag" id="notag">
                                         <option disabled selected>--Select No Tag--</option>
-                                        <option>XEWE</option>
+                                        @foreach($mitems as $mitem)
+                                        <option>{{ $mitem->code_tag }}</option>
+                                        @endforeach
                                     </select>
                                 </div>                                            
                                 <div class="form-group">
                                     <label>Tgl Consign</label>
-                                    <input type="date" class="form-control" name="tgl_consign" value="{{ date("Y-m-d") }}">
+                                    <input type="date" class="form-control" name="tgl_consign" id="tgl_consign" value="{{ date("Y-m-d") }}">
                                 </div>  
                             </div>
                             <div class="col-md-6">
@@ -221,9 +223,9 @@
                                                 <input type="text" class="form-control" id="hdnupload0" name="hdnupload0" readonly hidden>
                                                 <div class="input-group mb-3 px-2 py-1 bg-white shadow-sm" style="border:1px solid #ced4da; border-radius:5px;">
                                                     <input id="upload0" name="upload0" type="file" onchange="readURL0(this);" class="form-control border-0 upload">
-                                                    {{-- <label id="upload-label0" for="upload0" class="font-weight-light text-muted upload-label">Choose
+                                                    <label id="upload-label0" for="upload0" class="font-weight-light text-muted upload-label">Choose
                                                         file</label>
-                                                    <div class="input-group-append">
+                                                    {{-- <div class="input-group-append">
                                                         <label for="upload0" class="btn btn-light m-0 px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted"> Choose file</small></label>
                                                     </div> --}}
                                                 </div>
@@ -522,7 +524,46 @@
             }
         });
 
-        
+        $("#notag").on('select2:select', function(e) {
+            var codetag = $(this).val();
+            show_loading()
+            $.ajax({
+                url: '{{ route('getmitemtag') }}', 
+                method: 'post', 
+                data: {'codetag': codetag}, 
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}, 
+                dataType: 'json', 
+                success: function(response) {
+                    // console.log(kode);
+                    console.log(response);
+                    for (i=0; i < response.length; i++) {
+                        if(response[i].code_tag == codetag){
+                            $("#consignee").val(response[i].consignee)
+                            $("#jenis_brg").append("<option selected>"+response[i].type+"</option>");
+                            $("#tgl_consign").val(response[i].tgl_consign)
+                            $("#nohp1").val(response[i].phone)
+                            $("#nama_barang").val(response[i].name)
+                            $("#desc_barang").val(response[i].note)
+                            $("#quantity").val(response[i].qty)
+                            $("#warna").val(response[i].warna)
+                            $("#merk_barang").val(response[i].brand)
+                            $("#size").val(response[i].size)
+                            $("#nominal_beli1").val(response[i].nominal_modal)
+                            $("#nominal_beli2").val(response[i].nominal_jual)
+                            $("#kursbeli1").append("<option selected>"+response[i].kurs_modal+"</option>");
+                            $("#kursbeli2").append("<option selected>"+response[i].kurs_jual+"</option>");
+                            img = 'storage/images/' + response[i].pict;
+                            $("#imageResult0").attr("src", img);
+                        }
+                    }
+                    $("#upload0").change(function(){
+                    $("#lable_file").html($(this).val().split("\\").splice(-1,1)[0] || "Select file");     
+                });
+                    hide_loading()
+                }
+            });
+        });
 
         $(document).on('focusout', '.row_qty', function(event) 
             {

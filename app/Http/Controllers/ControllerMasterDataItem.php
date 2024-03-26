@@ -143,4 +143,14 @@ class ControllerMasterDataItem extends Controller
         Mitem::find($mitem->id)->delete();
         return redirect()->route('mitem');
     }
+
+    public function  getmitemtag(Request $request){
+        $codetag = $request->codetag;
+        if($codetag == ''){
+            $mitems = Mitem::select('id','no_consign','code_tag','name','type','consignee','phone','tgl_consign','hrg_modalsat','hrg_jualsat','note','qty','sat','brand','warna','size','kurs_modal','nominal_modal','kurs_jual','nominal_jual','pict','stock','status','attr1','attr2','attr3','attr4','attr5','attr6','attr7','attr8','attr9','attr10','attr11','attr12','attr13','attr14','attr15','attr16','attr17','attr18','attr19','atr_lain',)->orderBy('code', 'asc')->limit(20)->get();
+        }else{
+            $mitems = Mitem::select('id','no_consign','code_tag','name','type','consignee','phone','tgl_consign','hrg_modalsat','hrg_jualsat','note','qty','sat','brand','warna','size','kurs_modal','nominal_modal','kurs_jual','nominal_jual','pict','stock','status','attr1','attr2','attr3','attr4','attr5','attr6','attr7','attr8','attr9','attr10','attr11','attr12','attr13','attr14','attr15','attr16','attr17','attr18','attr19','atr_lain',)->where('code_tag','=',$codetag)->limit(20)->get();
+        }
+        return json_encode($mitems);
+    }
 }

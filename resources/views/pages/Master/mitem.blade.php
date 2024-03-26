@@ -417,6 +417,7 @@
                         for (i=0; i < response.length; i++) {
                             if(response[i].code == code){
                                 $("#phone").val(response[i].phone)
+                                $("#jenis_brg").append("<option selected>"+response[i].type+"</option>");
                             }
                         }
                         hide_loading()
