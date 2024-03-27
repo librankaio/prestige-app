@@ -195,13 +195,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Profit Prestige</label>
-                                    <input type="text" class="form-control" name="profit_prestige" id="profit_prestige" value="0" readonly>
+                                    <input type="text" class="form-control" name="profit_prestige" id="profit_prestige" value="0">
                                 </div>  
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Profit Consignee</label>
-                                    <input type="text" class="form-control" name="profit_consignee" id="profit_consignee" value="0" readonly>
+                                    <input type="text" class="form-control" name="profit_consignee" id="profit_consignee" value="0">
                                 </div>  
                             </div>
                         </div>
