@@ -114,17 +114,17 @@
                                 </div> 
                                 <div class="form-group">
                                     <label>Consignee</label>
-                                    <input type="text" class="form-control" name="consignee" id="consignee" value="weqe" readonly>
+                                    <input type="text" class="form-control" name="consignee" id="consignee" readonly>
                                 </div>  
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>No.HP #1</label>
-                                    <input type="text" class="form-control" name="nohp" id="nohp" value="qwewqe" readonly>
+                                    <input type="text" class="form-control" name="nohp" id="nohp" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Nama Barang</label>
-                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" value="wqe" readonly>
+                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Deskripsi Barang</label>
@@ -134,11 +134,11 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Quantity</label>
-                                    <input type="text" class="form-control" name="quantity" id="quantity" value="1" readonly>
+                                    <input type="text" class="form-control" name="quantity" id="quantity" value="0" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Merk Barang</label>
-                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" value="wqe" readonly>
+                                    <input type="text" class="form-control" name="merk_barang" id="merk_barang" readonly>
                                 </div>  
                                 <div class="row">
                                     <div class="col-md-6">
@@ -150,7 +150,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label>Nominal Beli Satuan</label>
-                                        <input type="text" class="form-control" name="nominal_beli1" id="nominal_beli1" value="2000" readonly>
+                                        <input type="text" class="form-control" name="nominal_beli1" id="nominal_beli1" value="0" readonly>
                                     </div>
                                 </div>
                                 <br>
@@ -164,7 +164,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label>Nominal Beli Satuan</label>
-                                        <input type="text" class="form-control" name="nominal_beli2" id="nominal_beli2" value="2000" readonly>
+                                        <input type="text" class="form-control" name="nominal_beli2" id="nominal_beli2" value="0" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -175,11 +175,11 @@
                                 </div>   --}}
                                 <div class="form-group">
                                     <label>Warna</label>
-                                    <input type="text" class="form-control" name="warna" id="warna" value="wqe" readonly>
+                                    <input type="text" class="form-control" name="warna" id="warna" readonly>
                                 </div>  
                                 <div class="form-group">
                                     <label>Size</label>
-                                    <input type="text" class="form-control" name="size" id="size" value="qwe" readonly>
+                                    <input type="text" class="form-control" name="size" id="size" readonly>
                                 </div>  
                                 {{-- <div class="form-group">
                                     <label>Material</label>
