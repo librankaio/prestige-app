@@ -222,12 +222,13 @@
                                             <div class="col-md-12">
                                                 <input type="text" class="form-control" id="hdnupload0" name="hdnupload0" readonly hidden>
                                                 <div class="input-group mb-3 px-2 py-1 bg-white shadow-sm" style="border:1px solid #ced4da; border-radius:5px;">
-                                                    <input id="upload0" name="upload0" type="file" onchange="readURL0(this);" class="form-control border-0 upload">
-                                                    <label id="upload-label0" for="upload0" class="font-weight-light text-muted upload-label">Choose
-                                                        file</label>
-                                                    {{-- <div class="input-group-append">
+                                                    <div class="input-group-append">
                                                         <label for="upload0" class="btn btn-light m-0 px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted"> Choose file</small></label>
-                                                    </div> --}}
+                                                    </div>
+                                                    <input id="upload0" name="upload0" type="file" onchange="readURL0(this);" class="form-control border-0 upload">
+                                                    <label id="upload-label0" for="upload0" class="font-weight-light text-muted upload-label pt-2">Choose
+                                                        file</label>
+                                                    
                                                 </div>
                                                 <div class="image-area mt-4"><img id="imageResult0" src="" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
                                                 <hr>
@@ -555,11 +556,9 @@
                             $("#kursbeli2").append("<option selected>"+response[i].kurs_jual+"</option>");
                             img = 'storage/images/' + response[i].pict;
                             $("#imageResult0").attr("src", img);
+                            $("#upload-label0").text(response[i].pict)
                         }
                     }
-                    $("#upload0").change(function(){
-                    $("#lable_file").html($(this).val().split("\\").splice(-1,1)[0] || "Select file");     
-                });
                     hide_loading()
                 }
             });

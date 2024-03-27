@@ -63,6 +63,10 @@
     outline: none;
 }
 
+input[type='file'] {
+    opacity:0    
+  }
+
 th,td {
     text-align:center;
 }

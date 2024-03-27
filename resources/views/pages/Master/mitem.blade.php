@@ -63,12 +63,14 @@
                                     <label>Type</label>
                                     <select class="form-control select2" name="type" id="type">
                                         <option disabled selected>--Select Type--</option>
-                                        <option>Bags</option>
+                                        @foreach($jenis_brgs as $jenis_brg)
+                                        <option>{{ $jenis_brg->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>  
                                 <div class="form-group">
                                     <label>Quantity</label>
-                                    <input type="text" class="form-control" name="quantity" value="">
+                                    <input type="text" class="form-control" name="quantity" id="quantity" value="">
                                 </div> 
                                 <div class="form-group">
                                     <label>Sat</label>
@@ -81,7 +83,9 @@
                                     <label>Brand</label>
                                     <select class="form-control select2" name="brand" id="brand">
                                         <option disabled selected>--Select Brand--</option>
-                                        <option>Bags</option>
+                                        @foreach($merks as $merk)
+                                        <option>{{ $merk->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>  
                                 <div class="form-group">
@@ -114,11 +118,11 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Nominal Modal</label>
-                                            <input type="text" class="form-control" name="hrgmodal" value="">
+                                            <input type="text" class="form-control" name="hrgmodal" id="hrgmodal" value="">
                                         </div>
                                         <div class="form-group">
                                             <label>Nominal Jual</label>
-                                            <input type="text" class="form-control" name="hrgjual" value="">
+                                            <input type="text" class="form-control" name="hrgjual" id="hrgjual" value="">
                                         </div>
                                     </div>
                                 </div>
@@ -417,7 +421,6 @@
                         for (i=0; i < response.length; i++) {
                             if(response[i].code == code){
                                 $("#phone").val(response[i].phone)
-                                $("#jenis_brg").append("<option selected>"+response[i].type+"</option>");
                             }
                         }
                         hide_loading()
@@ -641,6 +644,12 @@
         });
         // VALIDATE TRIGGER
         $("#quantity").keyup(function(e){
+            if (/\D/g.test(this.value)){
+                // Filter non-digits from input value.
+                this.value = this.value.replace(/\D/g, '');
+            }
+        });
+        $("#hrgmodal").keyup(function(e){
             if (/\D/g.test(this.value)){
                 // Filter non-digits from input value.
                 this.value = this.value.replace(/\D/g, '');
