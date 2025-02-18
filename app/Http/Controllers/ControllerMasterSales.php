@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class ControllerMasterSales extends Controller
 {
     public function index(){
-        $datas = Msale::all();
+        // $datas = Msale::all();
 
         return view('pages.Master.msales',[
-            'datas' => $datas
+            // 'datas' => $datas
         ]);
     }
 

@@ -6,6 +6,7 @@ use App\Models\Mconsign;
 use App\Models\Mitem;
 use App\Models\Mjenisbrg;
 use App\Models\Mmerk;
+use App\Models\Msatuan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -13,16 +14,18 @@ use Illuminate\Support\Facades\Storage;
 class ControllerMasterDataItem extends Controller
 {
     public function index(){
-        $datas = Mitem::all();
-        $consignees = Mconsign::select('id','code','name')->get();
-        $jenis_brgs = Mjenisbrg::select('id','code','name')->get();
-        $merks = Mmerk::select('id','code','name')->get();
+        // $datas = Mitem::all();
+        // $consignees = Mconsign::select('id','code','name')->get();
+        // $jenis_brgs = Mjenisbrg::select('id','code','name')->get();
+        // $satuans = Msatuan::select('id','satuan')->get();
+        // $merks = Mmerk::select('id','code','name')->get();
         // dd($datas->no_consign);
         return view('pages.Master.mitem',[
-            'datas' => $datas,
-            'consignees' => $consignees,
-            'jenis_brgs' => $jenis_brgs,
-            'merks' => $merks,
+            // 'datas' => $datas,
+            // 'consignees' => $consignees,
+            // 'jenis_brgs' => $jenis_brgs,
+            // 'satuans' => $satuans,
+            // 'merks' => $merks,
         ]);
     }
 
@@ -41,7 +44,7 @@ class ControllerMasterDataItem extends Controller
             'tgl_consign' => $request->dt,
             'hrg_modalsat' => $request->hrgmodal,
             'hrg_jualsat' => $request->hrgjual,
-            'note' => $request->satuan,
+            'note' => $request->note,
             'qty' => $request->quantity,
             'sat' => $request->satuan,
             'brand' => $request->brand,

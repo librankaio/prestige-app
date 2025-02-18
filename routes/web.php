@@ -9,6 +9,7 @@ use App\Http\Controllers\ControllerMasterJenisBarang;
 use App\Http\Controllers\ControllerMasterMerk;
 use App\Http\Controllers\ControllerMasterSales;
 use App\Http\Controllers\ControllerMasterSatuan;
+use App\Http\Controllers\ControllerMitemV2;
 use App\Http\Controllers\ControllerTransInvoice;
 use App\Http\Controllers\ControllerTransRetur;
 use Illuminate\Support\Facades\Route;
@@ -85,6 +86,8 @@ Route::get('/tretur/{tretur}/edit', [ControllerTransRetur::class, 'getedit'])->n
 Route::post('/treturtretur/{treturtretur}', [ControllerTransRetur::class, 'update'])->name('treturupdt');
 Route::post('/tretur/delete/{tretur}', [ControllerTransRetur::class, 'delete'])->name('treturdelete');
 
+Route::get('mitemv2', [ControllerMitemV2::class, 'index'])->name('mitemv2');
+Route::post('mitemv2post', [ControllerMitemV2::class, 'post'])->name('mitemv2post');
 // Route::get('/', function () {
 //     return view('welcome');
 // });

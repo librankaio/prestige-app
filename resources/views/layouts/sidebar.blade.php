@@ -6,16 +6,17 @@
             @php
                 $role = session('privilage');
             @endphp
-            <li><a class="nav-link" href="{{ route('msales') }}">Master Sales</a></li>
+            {{-- <li><a class="nav-link" href="{{ route('msales') }}">Master Sales</a></li>
             <li><a class="nav-link" href="{{ route('mcust') }}">Master Customer</a></li>
             <li><a class="nav-link" href="{{ route('mconsign') }}">Master Consignee</a></li>
             <li><a class="nav-link" href="{{ route('mmerk') }}">Master Merk</a></li>
             <li><a class="nav-link" href="{{ route('msatuan') }}">Master Satuan</a></li>
             <li><a class="nav-link" href="{{ route('mjenisbrg') }}">Master Jenis Barang</a></li>
-            <li><a class="nav-link" href="{{ route('mitem') }}">Master Data Item</a></li>
+            <li><a class="nav-link" href="{{ route('mitem') }}">Master Data Item</a></li> --}}
+            <li><a class="nav-link" href="{{ route('mitemv2') }}">Master Data Item V2</a></li>
         </ul>
     </li>
-    <li class="menu-header">Transaction</li>
+    {{-- <li class="menu-header">Transaction</li>
     <li class="nav-item dropdown">
         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-exchange-alt"></i>
             <span>Transaction</span></a>
@@ -39,7 +40,7 @@
         <ul class="dropdown-menu">
             <li><a class="nav-link" href="#">Upload Master Data Item</a></li>
         </ul>
-    </li>
+    </li> --}}
     {{-- <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li>
     <li class="nav-item dropdown">
         <a href="#" class="nav-link has-dropdown"><i class="fas fa-th"></i> <span>Bootstrap</span></a>
@@ -69,7 +70,7 @@
     {{-- <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>Credits</span></a></li>
 </ul> --}}
 
-{{-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+    {{-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
     <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
         <i class="fas fa-rocket"></i> Documentation
     </a>

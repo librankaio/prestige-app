@@ -153,18 +153,21 @@
         // Validate ifnull
         kode = $("#code").val();
         name = $("#name").val();
-        initial = $("#initial").val();
-
+        phone = $("#phone1").val();
+        gender = $("#gender").prop('selectedIndex');
         if (kode == ""){
             swal('WARNING', 'Kode Tidak boleh kosong!', 'warning');
             return false;
         }else if (name == ""){
             swal('WARNING', 'Nama Tidak boleh kosong!', 'warning');
             return false;
-        }else if (initial == ""){
-            swal('WARNING', 'Alamat Tidak boleh kosong!', 'warning');
+        }else if (phone == ""){
+            swal('WARNING', 'Phone Tidak boleh kosong!', 'warning');
             return false;
-        }      
+        }else if (gender == 0){
+            swal('WARNING', 'Jenis Kelamin Tidak boleh kosong!', 'warning');
+            return false;
+        }
 
     });
 
