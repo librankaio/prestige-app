@@ -281,9 +281,16 @@
                         this.value = Number(Math.trunc(this.value))
                     }
                 });
+                $(document).on("click", "#hrgjual", function(e) {
+                    if (/\D/g.test(this.value)) {
+                        // Filter comma
+                        this.value = this.value.replace(/\,/g, "");
+                        this.value = Number(Math.trunc(this.value))
+                    }
+                });
             });
             // VALIDATE TRIGGER
-            $("#hrgmodal").keyup(function(e) {
+            $("#hrgjual").keyup(function(e) {
                 if (/\D/g.test(this.value)) {
                     // Filter non-digits from input value.
                     this.value = this.value.replace(/\D/g, '');
@@ -295,7 +302,6 @@
                     this.value = this.value.replace(/\D/g, '');
                 }
             });
-
         })
     </script>
 @endsection

@@ -22,36 +22,49 @@ class ControllerMitemV2 extends Controller
 
     public function post(Request $request){
 
-        $originalName = request('upload0')->getClientOriginalName();
-        // $path = "images/";
-        // request()->file('images')->storeAs($path, $originalName);
+        if($request->file('upload0') != null){
+            $originalName = request('upload0')->getClientOriginalName();
+            // $path = "images/";
+            // request()->file('images')->storeAs($path, $originalName);
 
-         // Get the uploaded image file
-        $image = $request->file('upload0');
-        
-        // Create an instance of the image
-        $img = Image::make($image);
-        
-        // Compress the image (set the quality to 70)
-        $img->encode('jpg', 50); // 70 is the quality (0 to 100)
+            // Get the uploaded image file
+            $image = $request->file('upload0');
+            
+            // Create an instance of the image
+            $img = Image::make($image);
+            
+            // Compress the image (set the quality to 70)
+            $img->encode('jpg', 50); // 70 is the quality (0 to 100)
 
-        // Store the compressed image
-        Storage::put('images/'.$originalName, $img);
+            // Store the compressed image
+            Storage::put('images/'.$originalName, $img);
 
-        $file_link = 'prestige.swiapps.com/storage/images/'.$originalName;
+            $file_link = 'prestige.swiapps.com/storage/images/'.$originalName;
 
-        MitemV2::create([
-            'code' => $request->code_tag,
-            'dtconsign' => $request->dt_consign,
-            'name' => $request->name,
-            'code_mconsign' => $request->owner,
-            'code_mbrand' => $request->brand,
-            'basetype' => $request->jenis,
-            'hrgbeli' => (float) str_replace(',', '', $request->hrgjual),
-            'hrgjual' => (float) str_replace(',', '', $request->hrgtitip),
-            'picLink' => $file_link,
-        ]);
-
-        return redirect()->back()->with('success', 'Data berhasil ditambahkan');
+            MitemV2::create([
+                'code' => $request->code_tag,
+                'dtconsign' => $request->dt_consign,
+                'name' => $request->name,
+                'code_mconsign' => $request->owner,
+                'code_mbrand' => $request->brand,
+                'basetype' => $request->jenis,
+                'hrgbeli' => (float) str_replace(',', '', $request->hrgjual),
+                'hrgjual' => (float) str_replace(',', '', $request->hrgtitip),
+                'picLink' => $file_link,
+            ]);
+            return redirect()->back()->with('success', 'Data berhasil ditambahkan');
+        }else{
+            MitemV2::create([
+                'code' => $request->code_tag,
+                'dtconsign' => $request->dt_consign,
+                'name' => $request->name,
+                'code_mconsign' => $request->owner,
+                'code_mbrand' => $request->brand,
+                'basetype' => $request->jenis,
+                'hrgbeli' => (float) str_replace(',', '', $request->hrgjual),
+                'hrgjual' => (float) str_replace(',', '', $request->hrgtitip),
+            ]);
+            return redirect()->back()->with('success', 'Data berhasil ditambahkan');
+        }
     }
 }
