@@ -15,6 +15,13 @@ class MitemV2 extends Model
     protected $table='mitem';
 
     protected $fillable = [
+        'code_mtype',
+        'qty',
+        'qtyconsign',
+        'code_muom',
+        'code_mcurrb',
+        'code_mcurrj',
+        'code_mlocation',
         'code',
         'dtconsign',
         'name',

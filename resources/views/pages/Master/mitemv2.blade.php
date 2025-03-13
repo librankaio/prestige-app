@@ -57,7 +57,7 @@
                                             <select class="form-control select2" name="brand" id="brand">
                                                 <option disabled selected>--Select Brand--</option>
                                                 @foreach ($brands as $brand)
-                                                    <option>{{ $brand->name }}</option>
+                                                    <option value="{{ $brand->code }}">{{ $brand->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

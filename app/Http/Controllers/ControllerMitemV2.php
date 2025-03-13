@@ -42,6 +42,14 @@ class ControllerMitemV2 extends Controller
             $file_link = 'prestige.swiapps.com/storage/images/'.$originalName;
 
             MitemV2::create([
+                'code_mtype' => 'BAG',
+                'qty' => 1,
+                'qtyconsign' => 1,
+                'code_muom' => 'PCS',
+                'code_mcurrb' => 'IDR',
+                'code_mcurrj' => 'IDR',
+                'code_mlocation' => 'LC00001',
+                //REQ BARU DIATAS 13032025
                 'code' => $request->code_tag,
                 'dtconsign' => $request->dt_consign,
                 'name' => $request->name,
