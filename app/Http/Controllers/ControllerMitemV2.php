@@ -34,14 +34,14 @@ class ControllerMitemV2 extends Controller
             // Create an instance of the image
             $img = Image::make($image);
 
-            // dd($img);
             // Compress the image (set the quality to 70)
             $img->encode('jpg', 50); // 70 is the quality (0 to 100)
-
+            
             // Store the compressed image
             Storage::put('images/'.$originalName, $img);
-
+            
             $file_link = 'prestige.swiapps.com/storage/images/'.$originalName;
+            dd($file_link);
 
             MitemV2::create([
                 'basenum' => $basenum,
