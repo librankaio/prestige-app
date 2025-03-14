@@ -21,6 +21,7 @@ class ControllerMitemV2 extends Controller
     }
 
     public function post(Request $request){
+        $basenum = DB::select(DB::raw("SELECT TOP 1 no + 1 FROM mitem WHERE tstatus = 1 ORDER BY no DESC"));
 
         if($request->file('upload0') != null){
             $originalName = request('upload0')->getClientOriginalName();
@@ -42,6 +43,7 @@ class ControllerMitemV2 extends Controller
             $file_link = 'prestige.swiapps.com/storage/images/'.$originalName;
 
             MitemV2::create([
+                'basenum' => $basenum,
                 'code_mtype' => 'BAG',
                 'qty' => 1,
                 'qtyconsign' => 1,
@@ -55,7 +57,8 @@ class ControllerMitemV2 extends Controller
                 'name' => $request->name,
                 'code_mconsign' => $request->owner,
                 'code_mbrand' => $request->brand,
-                'basetype' => $request->jenis,
+                // 'basetype' => $request->jenis,
+                'basetype' => 'ITEM',
                 'hrgbeli' => (float) str_replace(',', '', $request->hrgjual),
                 'hrgjual' => (float) str_replace(',', '', $request->hrgtitip),
                 'picLink' => $file_link,
@@ -63,12 +66,22 @@ class ControllerMitemV2 extends Controller
             return redirect()->back()->with('success', 'Data berhasil ditambahkan');
         }else{
             MitemV2::create([
+                'basenum' => $basenum,
+                'code_mtype' => 'BAG',
+                'qty' => 1,
+                'qtyconsign' => 1,
+                'code_muom' => 'PCS',
+                'code_mcurrb' => 'IDR',
+                'code_mcurrj' => 'IDR',
+                'code_mlocation' => 'LC00001',
+                //REQ BARU DIATAS 13032025
                 'code' => $request->code_tag,
                 'dtconsign' => $request->dt_consign,
                 'name' => $request->name,
                 'code_mconsign' => $request->owner,
                 'code_mbrand' => $request->brand,
-                'basetype' => $request->jenis,
+                // 'basetype' => $request->jenis,
+                'basetype' => 'ITEM',
                 'hrgbeli' => (float) str_replace(',', '', $request->hrgjual),
                 'hrgjual' => (float) str_replace(',', '', $request->hrgtitip),
             ]);
