@@ -45,6 +45,7 @@ class ControllerMitemV2 extends Controller
 
             MitemV2::create([
                 // 'basenum' => $basenum,
+                'basenum' => 'TEST',
                 'code_mtype' => 'BAG',
                 'qty' => 1,
                 'qtyconsign' => 1,
