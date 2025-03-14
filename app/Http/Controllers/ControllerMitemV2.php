@@ -44,14 +44,14 @@ class ControllerMitemV2 extends Controller
             // dd($file_link);
 
             MitemV2::create([
-                'basenum' => $basenum,
-                'code_mtype' => 'BAG',
-                'qty' => 1,
-                'qtyconsign' => 1,
-                'code_muom' => 'PCS',
-                'code_mcurrb' => 'IDR',
-                'code_mcurrj' => 'IDR',
-                'code_mlocation' => 'LC00001',
+                // 'basenum' => $basenum,
+                // 'code_mtype' => 'BAG',
+                // 'qty' => 1,
+                // 'qtyconsign' => 1,
+                // 'code_muom' => 'PCS',
+                // 'code_mcurrb' => 'IDR',
+                // 'code_mcurrj' => 'IDR',
+                // 'code_mlocation' => 'LC00001',
                 //REQ BARU DIATAS 13032025
                 'code' => $request->code_tag,
                 'dtconsign' => $request->dt_consign,
