@@ -66,7 +66,7 @@ class ControllerMitemV2 extends Controller
             return redirect()->back()->with('success', 'Data berhasil ditambahkan');
         }else{
             MitemV2::create([
-                'basenum' => $basenum,
+                'basenum' => (string) $basenum[0]->number,
                 'code_mtype' => 'BAG',
                 'qty' => 1,
                 'qtyconsign' => 1,
