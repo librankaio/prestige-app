@@ -33,7 +33,8 @@ class ControllerMitemV2 extends Controller
             
             // Create an instance of the image
             $img = Image::make($image);
-            dd($img);
+
+            // dd($img);
             // Compress the image (set the quality to 70)
             $img->encode('jpg', 50); // 70 is the quality (0 to 100)
 
