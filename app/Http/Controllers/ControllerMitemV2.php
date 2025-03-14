@@ -21,8 +21,7 @@ class ControllerMitemV2 extends Controller
     }
 
     public function post(Request $request){
-        $basenum = DB::select(DB::raw("SELECT TOP 1 no + 1 FROM mitem WHERE tstatus = 1 ORDER BY no DESC"));
-        // dd($basenum);
+        $basenum = DB::select(DB::raw("SELECT TOP 1 no + 1 as number FROM mitem WHERE tstatus = 1 ORDER BY no DESC"));
         if($request->file('upload0') != null){
             $originalName = request('upload0')->getClientOriginalName();
             // $path = "images/";
@@ -41,10 +40,10 @@ class ControllerMitemV2 extends Controller
             Storage::put('images/'.$originalName, $img);
             
             $file_link = 'prestige.swiapps.com/storage/images/'.$originalName;
-            dd($basenum[0]);
+            // dd($basenum[0]->number);
 
             MitemV2::create([
-                'basenum' => (string) $basenum,
+                'basenum' => (string) $basenum[0]->number,
                 'code_mtype' => 'BAG',
                 'qty' => 1,
                 'qtyconsign' => 1,
