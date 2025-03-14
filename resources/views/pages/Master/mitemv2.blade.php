@@ -17,7 +17,7 @@
                     @include('layouts.flash-message')
                 </div>
             </div>
-            <form action="" method="POST" id="thisform" enctype="multipart/form-data">
+            <form action="{{ route('mitemv2post') }}" method="POST" id="thisform" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-6">
@@ -65,15 +65,24 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Jenis Barang</label>
+                                            <select class="form-control select2" name="jenis" id="jenis">
+                                                <option disabled selected>--Select Jenis Barang--</option>
+                                                @foreach ($mtypes as $mtype)
+                                                    <option value="{{ $mtype->code }}">{{ $mtype->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        {{-- <div class="form-group">
+                                            <label>Jenis Barang</label>
                                             <input type="text" class="form-control" name="jenis" id="jenis"
                                                 value="">
-                                            {{-- <select class="form-control select2" name="type" id="type">
+                                            <select class="form-control select2" name="type" id="type">
                                                 <option disabled selected>--Select Jenis Barang--</option>
                                                 @foreach ($jenis_brgs as $jenis_brg)
                                                     <option>{{ $jenis_brg->name }}</option>
                                                 @endforeach
-                                            </select> --}}
-                                        </div>
+                                            </select>
+                                        </div> --}}
                                         <div class="form-group">
                                             <label>Harga Jual</label>
                                             <input type="text" class="form-control" name="hrgjual" id="hrgjual"
@@ -188,6 +197,7 @@
 
 
         $(document).on("click", "#confirm", function(e) {
+            $('#confirm').addClass('btn-progress');
             // Validate ifnull
             name = $("#name").val();
             consignee = $("#consignee").prop('selectedIndex');
@@ -201,27 +211,80 @@
             curr_type2 = $("#curr_type2").prop('selectedIndex');
             if (consignee == "") {
                 swal('WARNING', 'Consignee Tidak boleh kosong!', 'warning');
+                $('#confirm').removeClass('btn-progress');
                 return false;
             } else if (code_tag == "") {
                 swal('WARNING', 'Kode tag Tidak boleh kosong!', 'warning');
+                $('#confirm').removeClass('btn-progress');
                 return false;
             } else if (name == "") {
                 swal('WARNING', 'Nama Tidak boleh kosong!', 'warning');
+                $('#confirm').removeClass('btn-progress');
                 return false;
             } else if (type == "") {
                 swal('WARNING', 'Type Tidak boleh kosong!', 'warning');
+                $('#confirm').removeClass('btn-progress');
                 return false;
             } else if (satuan == 0) {
                 swal('WARNING', 'Satuan Kelamin Tidak boleh kosong!', 'warning');
+                $('#confirm').removeClass('btn-progress');
                 return false;
             } else if (brand == 0) {
-                swal('WARNING', 'Brand Kelamin Tidak boleh kosong!', 'warning');
+                swal('WARNING', 'Brand Tidak boleh kosong!', 'warning');
+                $('#confirm').removeClass('btn-progress');
                 return false;
             } else if (phone == 0) {
                 swal('WARNING', 'Phone Tidak boleh kosong!', 'warning');
+                $('#confirm').removeClass('btn-progress');
                 return false;
             }
+            // Check if code exists via AJAX
+            $.ajax({
+                url: '{{ route('getexistcode') }}', // Change this to the server-side endpoint
+                method: 'POST',
+                data: {
+                    code: code_tag
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                dataType: 'json',
+                success: function(response) {
+                    console.log(response);
+                    console.log("code tag :" + code_tag);
+                    if (response == null) {
+                        swal('Warning', 'Code Tag kosong!', 'warning');
+                        // return false;
+                        setTimeout(function() {
+                            // Submit the form after the delay
+                            $("#thisform").submit();
+                        }, 5000);
+                        // $("#thisform").submit();
+                    } else {
+                        swal('Warning', 'Code Tag sudah ada!', 'warning');
+                        $('#confirm').removeClass('btn-progress');
+                        return false;
+                    }
+                    // Assuming the response is either 'exists' or 'not_exists'
 
+                    // if (response === 'exists') {
+                    //     // Proceed with form submission if code exists
+                    //     $("#myForm").submit();
+                    // } else {
+                    //     // Code doesn't exist, you can show an alert or message
+                    //     alert('Code does not exist!');
+                    // }
+                },
+                error: function() {
+                    swal('WARNING', 'An error occurred while checking the code!', 'warning');
+                    return false;
+                },
+                complete: function() {
+                    // Hide loading indicator
+                    $("#loading").hide();
+                }
+            });
+            return false;
         });
 
         $(document).ready(function() {

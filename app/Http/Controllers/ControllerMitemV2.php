@@ -14,9 +14,11 @@ class ControllerMitemV2 extends Controller
     public function index(){
         $owners = DB::table('mconsignee')->select('code', 'name')->where('tstatus','=','1')->get();
         $brands = DB::table('mbrand')->select('code', 'name')->where('tstatus','=','1')->get();
+        $mtypes = DB::table('mtype')->select('code', 'name')->where('tstatus','=','1')->get();
         return view('pages.Master.mitemv2',[
             'owners' => $owners,
             'brands' => $brands,
+            'mtypes' => $mtypes,
         ]);
     }
 
@@ -57,8 +59,8 @@ class ControllerMitemV2 extends Controller
                 'name' => $request->name,
                 'code_mconsign' => $request->owner,
                 'code_mbrand' => $request->brand,
-                'basetype' => $request->jenis,
-                // 'basetype' => 'ITEM',
+                // 'basetype' => $request->jenis,
+                'basetype' => 'ITEM',
                 'hrgbeli' => (float) str_replace(',', '', $request->hrgjual),
                 'hrgjual' => (float) str_replace(',', '', $request->hrgtitip),
                 'picLink' => $file_link,
@@ -87,5 +89,11 @@ class ControllerMitemV2 extends Controller
             ]);
             return redirect()->back()->with('success', 'Data berhasil ditambahkan');
         }
+    }
+
+    public function  getExistCode(Request $request){
+        $code = $request->code;
+        $code = MitemV2::select('id','code')->where('code','=',$code)->first();
+        return json_encode($code);
     }
 }

@@ -88,6 +88,7 @@ Route::post('/tretur/delete/{tretur}', [ControllerTransRetur::class, 'delete'])-
 
 Route::get('mitemv2', [ControllerMitemV2::class, 'index'])->name('mitemv2');
 Route::post('mitemv2post', [ControllerMitemV2::class, 'post'])->name('mitemv2post');
+Route::post('/getexistcode', [ControllerMitemV2::class, 'getExistCode'])->name('getexistcode');
 // Route::get('/', function () {
 //     return view('welcome');
 // });
