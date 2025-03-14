@@ -41,7 +41,7 @@ class ControllerMitemV2 extends Controller
             Storage::put('images/'.$originalName, $img);
             
             $file_link = 'prestige.swiapps.com/storage/images/'.$originalName;
-            // dd($file_link);
+            dd($basenum[0]);
 
             MitemV2::create([
                 'basenum' => (string) $basenum,
