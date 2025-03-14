@@ -15,6 +15,7 @@ class MitemV2 extends Model
     protected $table='mitem';
 
     protected $fillable = [
+        'basenum',
         'code_mtype',
         'qty',
         'qtyconsign',
@@ -22,6 +23,7 @@ class MitemV2 extends Model
         'code_mcurrb',
         'code_mcurrj',
         'code_mlocation',
+         //REQ BARU DIATAS 13032025
         'code',
         'dtconsign',
         'name',
