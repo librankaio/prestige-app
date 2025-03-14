@@ -22,7 +22,7 @@ class ControllerMitemV2 extends Controller
 
     public function post(Request $request){
         $basenum = DB::select(DB::raw("SELECT TOP 1 no + 1 FROM mitem WHERE tstatus = 1 ORDER BY no DESC"));
-        dd($basenum);
+        // dd($basenum);
         if($request->file('upload0') != null){
             $originalName = request('upload0')->getClientOriginalName();
             // $path = "images/";
