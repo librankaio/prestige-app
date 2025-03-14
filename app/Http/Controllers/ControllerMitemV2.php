@@ -44,8 +44,7 @@ class ControllerMitemV2 extends Controller
             // dd($file_link);
 
             MitemV2::create([
-                // 'basenum' => $basenum,
-                'basenum' => 'TEST',
+                'basenum' => (string) $basenum,
                 'code_mtype' => 'BAG',
                 'qty' => 1,
                 'qtyconsign' => 1,
