@@ -45,7 +45,8 @@ class ControllerMitemV2 extends Controller
             // dd($basenum[0]->number);
 
             MitemV2::create([
-                'basenum' => (string) $basenum[0]->number,
+                'no' => (string) $basenum[0]->number,
+                'basenum' => $request->code_tag,
                 'code_mtype' => 'BAG',
                 'qty' => 1,
                 'qtyconsign' => 1,
@@ -68,7 +69,8 @@ class ControllerMitemV2 extends Controller
             return redirect()->back()->with('success', 'Data berhasil ditambahkan');
         }else{
             MitemV2::create([
-                'basenum' => (string) $basenum[0]->number,
+                'no' => (string) $basenum[0]->number,
+                'basenum' => $request->code_tag,
                 'code_mtype' => 'BAG',
                 'qty' => 1,
                 'qtyconsign' => 1,

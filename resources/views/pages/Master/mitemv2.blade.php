@@ -253,7 +253,7 @@
                     console.log(response);
                     console.log("code tag :" + code_tag);
                     if (response == null) {
-                        swal('Warning', 'Code Tag kosong!', 'warning');
+                        // swal('Warning', 'Code Tag kosong!', 'warning');
                         // return false;
                         setTimeout(function() {
                             // Submit the form after the delay
