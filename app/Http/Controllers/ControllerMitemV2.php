@@ -30,16 +30,17 @@ class ControllerMitemV2 extends Controller
             // request()->file('images')->storeAs($path, $originalName);
 
             // Get the uploaded image file
-            $image = $request->file('upload0');
+            // $image = $request->file('upload0');
             
             // Create an instance of the image
-            $img = Image::make($image);
+            // $img = Image::make($image);
 
             // Compress the image (set the quality to 70)
-            $img->encode('jpg', 50); // 70 is the quality (0 to 100)
+            // $img->encode('jpg', 50); // 70 is the quality (0 to 100)
             
             // Store the compressed image
-            Storage::put('images/'.$originalName, $img);
+            // Storage::put('images/'.$originalName, $img);
+            Storage::put('images/'.$originalName, $request->file('upload0'));
             
             $file_link = 'prestige.swiapps.com/storage/images/'.$originalName;
             // dd($basenum[0]->number);
