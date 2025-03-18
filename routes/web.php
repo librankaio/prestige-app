@@ -4,7 +4,9 @@ use App\Http\Controllers\ControllerHome;
 use App\Http\Controllers\ControllerLogin;
 use App\Http\Controllers\ControllerMasterConsignee;
 use App\Http\Controllers\ControllerMasterCustomer;
+use App\Http\Controllers\ControllerMasterDataCustomer;
 use App\Http\Controllers\ControllerMasterDataItem;
+use App\Http\Controllers\ControllerMasterDataUser;
 use App\Http\Controllers\ControllerMasterJenisBarang;
 use App\Http\Controllers\ControllerMasterMerk;
 use App\Http\Controllers\ControllerMasterSales;
@@ -85,6 +87,9 @@ Route::get('treturlist', [ControllerTransRetur::class, 'list'])->name('treturlis
 Route::get('/tretur/{tretur}/edit', [ControllerTransRetur::class, 'getedit'])->name('treturedit');
 Route::post('/treturtretur/{treturtretur}', [ControllerTransRetur::class, 'update'])->name('treturupdt');
 Route::post('/tretur/delete/{tretur}', [ControllerTransRetur::class, 'delete'])->name('treturdelete');
+
+Route::get('mcust', [ControllerMasterDataCustomer::class, 'index'])->name('mcust');
+Route::get('mcustpost', [ControllerMasterDataCustomer::class, 'post'])->name('mcustpost');
 
 Route::get('mitemv2', [ControllerMitemV2::class, 'index'])->name('mitemv2');
 Route::post('mitemv2post', [ControllerMitemV2::class, 'post'])->name('mitemv2post');

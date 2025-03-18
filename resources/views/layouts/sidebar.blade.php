@@ -14,6 +14,7 @@
             <li><a class="nav-link" href="{{ route('mjenisbrg') }}">Master Jenis Barang</a></li>
             <li><a class="nav-link" href="{{ route('mitem') }}">Master Data Item</a></li> --}}
             <li><a class="nav-link" href="{{ route('mitemv2') }}">Master Data Item V2</a></li>
+            <li><a class="nav-link" href="{{ route('mcust') }}">Master Data Customer</a></li>
         </ul>
     </li>
     {{-- <li class="menu-header">Transaction</li>

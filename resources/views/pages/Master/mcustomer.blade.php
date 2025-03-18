@@ -2,9 +2,9 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Master Data Item</h1>
+            <h1>Master Data Customer</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Master Data</a></div>
+                <div class="breadcrumb-Customer active"><a href="#">Master Data</a></div>
                 <div class="breadcrumb-item"><a class="text-muted">Master Data Item</a></div>
             </div>
         </div>
@@ -17,7 +17,7 @@
                     @include('layouts.flash-message')
                 </div>
             </div>
-            <form action="{{ route('mitemv2post') }}" method="POST" id="thisform" enctype="multipart/form-data">
+            <form action="{{ route('mcustpost') }}" method="POST" id="thisform" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-6">
@@ -27,125 +27,25 @@
                             </div>
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>Code Tag</label>
-                                            <input type="text" class="form-control" name="code_tag" id="code_tag">
+                                            <label>Code</label>
+                                            <input type="text" class="form-control" name="code" id="code">
                                         </div>
                                         <div class="form-group">
-                                            <label>Tanggal Consigne</label>
-                                            <input type="date" class="form-control" name="dt_consign"
-                                                value="{{ date('Y-m-d') }}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nama Barang</label>
+                                            <label>Name</label>
                                             <input type="text" class="form-control" name="name" id="name">
                                         </div>
                                         <div class="form-group">
-                                            <label>Owner</label>
-                                            <select class="form-control select2" name="owner" id="owner">
-                                                <option disabled selected>--Select Owner--</option>
-                                                @foreach ($owners as $owner)
-                                                    <option value="{{ $owner->code }}">
-                                                        {{ $owner->code . '-' . $owner->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Brand</label>
-                                            <select class="form-control select2" name="brand" id="brand">
-                                                <option disabled selected>--Select Brand--</option>
-                                                @foreach ($brands as $brand)
-                                                    <option value="{{ $brand->code }}">{{ $brand->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Jenis Barang</label>
-                                            <select class="form-control select2" name="jenis" id="jenis">
-                                                <option disabled selected>--Select Jenis Barang--</option>
-                                                @foreach ($mtypes as $mtype)
-                                                    <option value="{{ $mtype->code }}">{{ $mtype->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        {{-- <div class="form-group">
-                                            <label>Jenis Barang</label>
-                                            <input type="text" class="form-control" name="jenis" id="jenis"
-                                                value="">
-                                            <select class="form-control select2" name="type" id="type">
-                                                <option disabled selected>--Select Jenis Barang--</option>
-                                                @foreach ($jenis_brgs as $jenis_brg)
-                                                    <option>{{ $jenis_brg->name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div> --}}
-                                        <div class="form-group">
-                                            <label>Harga Jual</label>
-                                            <input type="text" class="form-control" name="hrgjual" id="hrgjual"
-                                                value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Harga Titip</label>
-                                            <input type="text" class="form-control" name="hrgtitip" id="hrgtitip"
-                                                value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Note</label>
-                                            <textarea class="form-control" style="height:100px" name="note"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 col-lg-6">
-                        <div class="card" style="border: 1px solid lightblue">
-                            <div class="card-header">
-                                <h4>Gambar</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <section class="uploadimg">
-                                                <div class="row py-2">
-                                                    <div class="col-md-12">
-                                                        <input type="text" class="form-control" id="hdnupload0"
-                                                            name="hdnupload0" readonly hidden>
-                                                        <div class="input-group mb-3 px-2 py-1 bg-white shadow-sm"
-                                                            style="border:1px solid #ced4da; border-radius:5px;">
-                                                            <input id="upload0" name="upload0" type="file"
-                                                                onchange="readURL0(this);"
-                                                                class="form-control border-0 upload">
-                                                            <label id="upload-label0" for="upload0"
-                                                                class="font-weight-light text-muted upload-label"
-                                                                style="position: absolute; top: 50%; left: 1rem; transform: translateY(-50%);">Choose
-                                                                file</label>
-                                                            <div class="input-group-append">
-                                                                <label for="upload0" class="btn btn-light m-0 px-4"><img
-                                                                        src="{{ asset('../assets/img/icons/cloud-upload-regular-24.png') }}"alt="dots-vertical" /><small
-                                                                        class="text-uppercase font-weight-bold text-muted">
-                                                                        Choose file</small></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="image-area mt-4"><img id="imageResult0" src=""
-                                                                alt=""
-                                                                class="img-fluid rounded shadow-sm mx-auto d-block"></div>
-                                                        <hr>
-                                                    </div>
-                                                </div>
-                                            </section>
+                                            <label>Phone</label>
+                                            <input type="text" class="form-control" name="phone" id="phone">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer">
                                 <button class="btn btn-primary mr-1" id="confirm" type="submit"
-                                    formaction="{{ route('mitemv2post') }}" style="width: 100%">Save</button>
+                                    formaction="{{ route('mcustpost') }}" style="width: 100%">Save</button>
                             </div>
                         </div>
                     </div>

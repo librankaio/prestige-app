@@ -34,5 +34,7 @@ class MitemV2 extends Model
         'hrgbeli',
         'hrgjual',
         'picLink',
+        'notespec',
+        //REQ BARU DIATAS 18032025
     ];
 }

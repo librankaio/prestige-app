@@ -66,6 +66,8 @@ class ControllerMitemV2 extends Controller
                 'hrgbeli' => (float) str_replace(',', '', $request->hrgjual),
                 'hrgjual' => (float) str_replace(',', '', $request->hrgtitip),
                 'picLink' => $file_link,
+                'notespec' => $request->note,
+                //REQ BARU DIATAS 18032025
             ]);
             return redirect()->back()->with('success', 'Data berhasil ditambahkan');
         }else{
@@ -89,6 +91,8 @@ class ControllerMitemV2 extends Controller
                 'basetype' => 'ITEM',
                 'hrgbeli' => (float) str_replace(',', '', $request->hrgjual),
                 'hrgjual' => (float) str_replace(',', '', $request->hrgtitip),
+                'notespec' => $request->note,
+                //REQ BARU DIATAS 18032025
             ]);
             return redirect()->back()->with('success', 'Data berhasil ditambahkan');
         }
