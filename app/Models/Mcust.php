@@ -9,6 +9,8 @@ class Mcust extends Model
 {
     use HasFactory;
 
+    protected $table='mcust';
+
     protected $fillable = [
         'code',
         'name',
