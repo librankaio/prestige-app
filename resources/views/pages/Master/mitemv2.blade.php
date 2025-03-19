@@ -120,7 +120,8 @@
                                                             style="border:1px solid #ced4da; border-radius:5px;">
                                                             <input id="upload0" name="upload0" type="file"
                                                                 onchange="readURL0(this);"
-                                                                class="form-control border-0 upload">
+                                                                class="form-control border-0 upload"
+                                                                accept="image/jpeg, image/jpg, image/png">
                                                             <label id="upload-label0" for="upload0"
                                                                 class="font-weight-light text-muted upload-label"
                                                                 style="position: absolute; top: 50%; left: 1rem; transform: translateY(-50%);">Choose
@@ -132,8 +133,8 @@
                                                                         Choose file</small></label>
                                                             </div>
                                                         </div>
-                                                        <div class="image-area mt-4"><img id="imageResult0" src=""
-                                                                alt=""
+                                                        <div class="image-area mt-4"><img id="imageResult0"
+                                                                src="" alt=""
                                                                 class="img-fluid rounded shadow-sm mx-auto d-block"></div>
                                                         <hr>
                                                     </div>
