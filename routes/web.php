@@ -94,6 +94,7 @@ Route::get('mcustpost', [ControllerMasterDataCustomer::class, 'post'])->name('mc
 Route::get('mitemv2', [ControllerMitemV2::class, 'index'])->name('mitemv2');
 Route::post('mitemv2post', [ControllerMitemV2::class, 'post'])->name('mitemv2post');
 Route::post('/getexistcode', [ControllerMitemV2::class, 'getExistCode'])->name('getexistcode');
+Route::post('/getphone', [ControllerMitemV2::class, 'getPhone'])->name('getphone');
 // Route::get('/', function () {
 //     return view('welcome');
 // });

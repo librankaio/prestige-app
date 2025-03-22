@@ -103,4 +103,25 @@ class ControllerMitemV2 extends Controller
         $code = MitemV2::select('id','code')->where('code','=',$code)->first();
         return json_encode($code);
     }
+
+
+    public function  getPhone(Request $request){
+        $search = $request->search;
+
+        if($search == ''){
+            $phones = DB::table('mcust')->select('hp1', 'name')->where('tstatus','=','1')->limit(10)->get();
+        }else{
+            $phones = DB::table('mcust')->select('hp1', 'name')->where('hp1','LIKE','%'.$search.'%')->where('tstatus','=','1')->limit(10)->get();
+        }
+        
+        $response = array();
+        foreach($phones as $phone){
+            $response[] = array(
+                "id"=>$phone->hp1,
+                "text"=>$phone->hp1." - ".$phone->name
+            );
+        }
+
+      return response()->json($response);
+    }
 }

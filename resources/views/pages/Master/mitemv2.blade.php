@@ -41,7 +41,7 @@
                                             <label>Nama Barang</label>
                                             <input type="text" class="form-control" name="name" id="name">
                                         </div>
-                                        <div class="form-group">
+                                        {{-- <div class="form-group">
                                             <label>Owner</label>
                                             <select class="form-control select2" name="owner" id="owner">
                                                 <option disabled selected>--Select Owner--</option>
@@ -50,6 +50,18 @@
                                                         {{ $owner->code . '-' . $owner->name }}
                                                     </option>
                                                 @endforeach
+                                            </select>
+                                        </div> --}}
+                                        <div class="form-group">
+                                            <label>Phone</label>
+                                            <select class="form-control select2" name="phone" id="phone">
+                                                <option></option>
+                                                {{-- <option disabled selected>--Select Phone--</option>
+                                                @foreach ($phones as $phone)
+                                                    <option value="{{ $phone->hp1 }}">
+                                                        {{ $phone->hp1 . '-' . $phone->name }}
+                                                    </option>
+                                                @endforeach --}}
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -133,8 +145,8 @@
                                                                         Choose file</small></label>
                                                             </div>
                                                         </div>
-                                                        <div class="image-area mt-4"><img id="imageResult0"
-                                                                src="" alt=""
+                                                        <div class="image-area mt-4"><img id="imageResult0" src=""
+                                                                alt=""
                                                                 class="img-fluid rounded shadow-sm mx-auto d-block"></div>
                                                         <hr>
                                                     </div>
@@ -293,7 +305,8 @@
         });
 
         $(document).ready(function() {
-
+            //CSRF TOKEN
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
             $("#consignee").on('select2:select', function(e) {
                 var code = $(this).val();
                 show_loading()
@@ -354,6 +367,28 @@
                         // Filter comma
                         this.value = this.value.replace(/\,/g, "");
                         this.value = Number(Math.trunc(this.value))
+                    }
+                });
+                $("#phone").select2({
+                    placeholder: 'Select Phone',
+                    ajax: {
+                        url: "{{ route('getphone') }}",
+                        type: "post",
+                        dataType: "json",
+                        delay: 250,
+                        data: function(params) {
+                            return {
+                                _token: CSRF_TOKEN,
+                                search: params.term, //search term
+                            };
+                        },
+                        processResults: function(response) {
+                            console.log(response)
+                            return {
+                                results: response,
+                            };
+                        },
+                        cache: true,
                     }
                 });
             });
