@@ -132,8 +132,7 @@
                                                             style="border:1px solid #ced4da; border-radius:5px;">
                                                             <input id="upload0" name="upload0" type="file"
                                                                 onchange="readURL0(this);"
-                                                                class="form-control border-0 upload"
-                                                                accept="image/jpeg, image/jpg, image/png">
+                                                                class="form-control border-0 upload" {{-- accept="image/jpeg, image/jpg, image/png" --}}>
                                                             <label id="upload-label0" for="upload0"
                                                                 class="font-weight-light text-muted upload-label"
                                                                 style="position: absolute; top: 50%; left: 1rem; transform: translateY(-50%);">Choose
