@@ -22,7 +22,7 @@ class ControllerMasterCustomer extends Controller
         Mcust::create([
             'code' => $request->code,
             'name' => $request->name,
-            'jenis_kelamin' => $request->gender,
+            'gender' => $request->gender,
             'phone1' => $request->phone1,
             'phone2' => $request->phone2,
             'alamat' => $request->alamat,
@@ -42,7 +42,7 @@ class ControllerMasterCustomer extends Controller
         Mcust::where('id', '=', $mcust->id)->update([
             'code' => request('code'),
             'name' => request('name'),
-            'jenis_kelamin' => request('gender'),
+            'gender' => request('gender'),
             'phone1' => request('phone1'),
             'phone2' => request('phone2'),
             'alamat' => request('alamat'),
