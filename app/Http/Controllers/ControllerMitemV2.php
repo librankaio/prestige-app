@@ -111,7 +111,7 @@ class ControllerMitemV2 extends Controller
         if($search == ''){
             $phones = DB::table('mcust')->select('hp1', 'name')->where('tstatus','=','1')->limit(10)->get();
         }else{
-            $phones = DB::table('mcust')->select('hp1', 'name')->where('hp1','LIKE','%'.$search.'%')->where('tstatus','=','1')->limit(10)->get();
+            $phones = DB::table('mcust')->select('hp1', 'name')->where('name','LIKE','%'.$search.'%')->where('tstatus','=','1')->limit(10)->get();
         }
         
         $response = array();
