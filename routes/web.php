@@ -36,11 +36,11 @@ Route::get('/msales/{msale}/edit', [ControllerMasterSales::class, 'getedit'])->n
 Route::post('/msales/{msale}', [ControllerMasterSales::class, 'update'])->name('msalesupdate');
 Route::post('/msales/delete/{msale}', [ControllerMasterSales::class, 'delete'])->name('msalesdelete');
 
-Route::get('mcust', [ControllerMasterCustomer::class, 'index'])->name('mcust');
-Route::post('mcustpost', [ControllerMasterCustomer::class, 'post'])->name('mcustpost');
-Route::get('/mcust/{mcust}/edit', [ControllerMasterCustomer::class, 'getedit'])->name('mcustgetedit');
-Route::post('/mcust/{mcust}', [ControllerMasterCustomer::class, 'update'])->name('mcustupdt');
-Route::post('/mcust/delete/{mcust}', [ControllerMasterCustomer::class, 'delete'])->name('mcustdelete');
+// Route::get('mcust', [ControllerMasterCustomer::class, 'index'])->name('mcust');
+// Route::post('mcustpost', [ControllerMasterCustomer::class, 'post'])->name('mcustpost');
+// Route::get('/mcust/{mcust}/edit', [ControllerMasterCustomer::class, 'getedit'])->name('mcustgetedit');
+// Route::post('/mcust/{mcust}', [ControllerMasterCustomer::class, 'update'])->name('mcustupdt');
+// Route::post('/mcust/delete/{mcust}', [ControllerMasterCustomer::class, 'delete'])->name('mcustdelete');
 
 Route::get('mconsign', [ControllerMasterConsignee::class, 'index'])->name('mconsign');
 Route::post('mconsignpost', [ControllerMasterConsignee::class, 'post'])->name('mconsignpost');
@@ -89,7 +89,7 @@ Route::post('/treturtretur/{treturtretur}', [ControllerTransRetur::class, 'updat
 Route::post('/tretur/delete/{tretur}', [ControllerTransRetur::class, 'delete'])->name('treturdelete');
 
 Route::get('mcust', [ControllerMasterDataCustomer::class, 'index'])->name('mcust');
-Route::get('mcustpost', [ControllerMasterDataCustomer::class, 'post'])->name('mcustpost');
+Route::post('mcustpost', [ControllerMasterDataCustomer::class, 'post'])->name('mcustpost');
 
 Route::get('mitemv2', [ControllerMitemV2::class, 'index'])->name('mitemv2');
 Route::post('mitemv2post', [ControllerMitemV2::class, 'post'])->name('mitemv2post');

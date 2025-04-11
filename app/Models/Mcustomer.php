@@ -17,6 +17,6 @@ class Mcustomer extends Model
     protected $fillable = [
         'code',
         'name',
-        'phn',
+        'hp1',
     ];
 }

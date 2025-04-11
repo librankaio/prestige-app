@@ -16,7 +16,7 @@ class ControllerMasterDataCustomer extends Controller
         Mcustomer::create([
             'code' => $request->code,
             'name' => $request->name,
-            'phn' => $request->phone,
+            'hp1' => $request->phone,
         ]);
         return redirect()->back()->with('success', 'Data berhasil ditambahkan');
     }
