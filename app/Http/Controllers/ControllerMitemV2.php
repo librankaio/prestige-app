@@ -23,11 +23,12 @@ class ControllerMitemV2 extends Controller
     }
 
     public function post(Request $request){
+        // dd($request->file('upload0'));
         $basenum = DB::select(DB::raw("SELECT TOP 1 no + 1 as number FROM mitem WHERE tstatus = 1 ORDER BY no DESC"));
         if($request->file('upload0') != null){
             $originalName = request('upload0')->getClientOriginalName();
-            // $path = "images/";
-            // request()->file('images')->storeAs($path, $originalName);
+            $path = "images/";
+            request()->file('upload0')->storeAs($path, $originalName);
 
             // Get the uploaded image file
             // $image = $request->file('upload0');
@@ -40,7 +41,7 @@ class ControllerMitemV2 extends Controller
             
             // Store the compressed image
             // Storage::put('images/'.$originalName, $img);
-            Storage::put('images/'.$originalName, $request->file('upload0'));
+            // Storage::put('images/', $request->file('upload0'));
             
             $file_link = 'prestige.swiapps.com/storage/images/'.$originalName;
             // dd($basenum[0]->number);
