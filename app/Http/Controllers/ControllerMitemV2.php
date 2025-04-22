@@ -109,9 +109,9 @@ class ControllerMitemV2 extends Controller
         $search = $request->search;
 
         if($search == ''){
-            $phones = DB::table('mcust')->select('code','hp1', 'name')->where('tstatus','=','1')->limit(10)->get();
+            $phones = DB::table('mconsignee')->select('code','hp1', 'name')->where('tstatus','=','1')->limit(10)->get();
         }else{
-            $phones = DB::table('mcust')->select('code','hp1', 'name')->where('name','LIKE','%'.$search.'%')->where('tstatus','=','1')->limit(10)->get();
+            $phones = DB::table('mconsignee')->select('code','hp1', 'name')->where('name','LIKE','%'.$search.'%')->where('tstatus','=','1')->limit(10)->get();
         }
         
         $response = array();
