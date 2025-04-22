@@ -48,7 +48,7 @@ class ControllerMitemV2 extends Controller
             MitemV2::create([
                 'no' => (string) $basenum[0]->number,
                 'basenum' => $request->code_tag,
-                'code_mtype' => 'BAG',
+                'code_mtype' => $request->jenis,
                 'qty' => 1,
                 'qtyconsign' => 1,
                 'code_muom' => 'PCS',
@@ -74,7 +74,7 @@ class ControllerMitemV2 extends Controller
             MitemV2::create([
                 'no' => (string) $basenum[0]->number,
                 'basenum' => $request->code_tag,
-                'code_mtype' => 'BAG',
+                'code_mtype' => $request->jenis,
                 'qty' => 1,
                 'qtyconsign' => 1,
                 'code_muom' => 'PCS',
