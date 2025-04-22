@@ -23,7 +23,6 @@ class ControllerMitemV2 extends Controller
     }
 
     public function post(Request $request){
-        // dd($request->file('upload0'));
         $basenum = DB::select(DB::raw("SELECT TOP 1 no + 1 as number FROM mitem WHERE tstatus = 1 ORDER BY no DESC"));
         if($request->file('upload0') != null){
             $originalName = request('upload0')->getClientOriginalName();
@@ -110,15 +109,15 @@ class ControllerMitemV2 extends Controller
         $search = $request->search;
 
         if($search == ''){
-            $phones = DB::table('mcust')->select('hp1', 'name')->where('tstatus','=','1')->limit(10)->get();
+            $phones = DB::table('mcust')->select('code','hp1', 'name')->where('tstatus','=','1')->limit(10)->get();
         }else{
-            $phones = DB::table('mcust')->select('hp1', 'name')->where('name','LIKE','%'.$search.'%')->where('tstatus','=','1')->limit(10)->get();
+            $phones = DB::table('mcust')->select('code','hp1', 'name')->where('name','LIKE','%'.$search.'%')->where('tstatus','=','1')->limit(10)->get();
         }
         
         $response = array();
         foreach($phones as $phone){
             $response[] = array(
-                "id"=>$phone->hp1,
+                "id"=>$phone->code,
                 "text"=>$phone->hp1." - ".$phone->name
             );
         }
