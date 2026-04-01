@@ -214,6 +214,20 @@
 
         $(document).on("click", "#confirm", function(e) {
             $('#confirm').addClass('btn-progress');
+            // ===== FILE SIZE VALIDATION =====
+            const fileInput = document.getElementById('upload0');
+            const maxSize = 20 * 1024 * 1024; // 20 MB
+
+            if (fileInput.files.length > 0) {
+                const fileSize = fileInput.files[0].size;
+
+                if (fileSize > maxSize) {
+                    swal('WARNING', 'Ukuran file maksimal 20 MB!', 'warning');
+                    $('#confirm').removeClass('btn-progress');
+                    return false;
+                }
+            }
+            // =================================
             // Validate ifnull
             name = $("#name").val();
             consignee = $("#consignee").prop('selectedIndex');
