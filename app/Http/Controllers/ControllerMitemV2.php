@@ -40,7 +40,7 @@ class ControllerMitemV2 extends Controller
             
             // Store the compressed image
             Storage::put('images/'.$originalName, $img);
-            Storage::put('images/', $request->file('upload0'));
+            // Storage::put('images/', $request->file('upload0'));
             
             $file_link = 'prestige.swiapps.com/storage/images/'.$originalName;
             // dd($basenum[0]->number);
